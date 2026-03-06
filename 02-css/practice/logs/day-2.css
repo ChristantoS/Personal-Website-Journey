@@ -1,19 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>CSS Pratice</title>
-    <link rel="stylesheet" href="style.css"> 
-</head>
+* {
+    box-sizing: border-box;
+}
 
-<body>
+body {
+    background-color: black;
+    color:white;
+    font-family: 'Times New Roman';
+}
 
-    <h1>Belajar CSS</h1>
-    <p>ini latihan CSS pertama ku</p>
+h1 {
+    background-color: gray;
+    color: white;
+    font-family: 'Times New Roman';
+    width: 193px;
+}
 
-    <h2>Box 1</h1>
-    <p>example box</p>
-</body>
-</html>
+.box {
+    background-color: gray;
+    width:40px;
+    padding:20px;
+    border:2px white;
+}
 
-    gap: 20px;
-    justify-content: space-between;
+.container {
+    display: flex;
+    height: 200px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
