@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color:white;
+    font-family: 'Times New Roman';
+}
+
+h1 {
+    background-color: gray;
+    color: white;
+    font-family: 'Times New Roman';
+    width: 193px;
+}
+
+.box {
+    background-color: gray;
+    width:40px;
+    padding:20px;
+    border:2px white;
+}
+
+.container {
+    display: flex;
+    height: 200px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
