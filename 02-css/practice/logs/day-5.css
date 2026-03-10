@@ -1,0 +1,75 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: open sans;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+}
+
+.sidebar {
+    display: content-box;
+    position: sticky;
+    top: 40px;
+    height: fit-content;
+}
+
+.profile-card {
+    background-color: #292929;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.profile-picture {
+
+}
+
+.name {
+    
+}
+
+.interest {
+    gap: 40px;
+}
+
+.interest-card {
+    background-color: #4B4E53;
+    border-radius: 25px;
+    transition: transform 0.3s;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.interest-card:hover{
+    background-color: black;
+    transform: translateY(-5px);
+}
+
+
+.content {
+    display: content-box;
+
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
