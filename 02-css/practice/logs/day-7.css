@@ -1,0 +1,132 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #555;
+    margin: 10px 0;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+}
+
+.sidebar {
+    position: sticky;
+    flex-shrink: 0;
+
+    width: 300px;
+    top: 0px;
+    height: 100vh;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #292929;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.profile-picture {
+    background-color: #4B4E53;
+    border-radius: 25px;
+
+    text-align: center;
+}
+
+.name {
+    margin: 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.interests {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    align-items: center;
+    gap: 7px;
+}
+
+.interest-card {
+    display: inline-block;
+    background-color: #4B4E53;
+    border-radius: 25px;
+    transition: transform 0.3s;
+    padding: 5px;
+}
+
+.interest-card:hover{
+    background-color: black;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.skill-card {
+    background-color: #4B4E53;
+    border-radius: 5px;
+    padding: 8px;
+    text-align: center;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    background-color: #292929;
+    width: 100%;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.navbar {
+    position: sticky;
+
+    top: 0;
+    background-color: #4B4E53;
+    border-radius: 15px;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #ffd400;
+    
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
