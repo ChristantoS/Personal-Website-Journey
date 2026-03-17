@@ -6,6 +6,12 @@ html {
     box-sizing: border-box;
 }
 
+hr {
+    border: none;
+    height: 1px;
+    background-color: #555;
+    margin: 10px 0;
+}
 
 body {
     margin: 0;
@@ -24,10 +30,11 @@ body {
 
 .sidebar {
     position: sticky;
+    flex-shrink: 0;
 
     width: 300px;
-    top: 50px;
-    height: fit-content;
+    top: 0px;
+    height: 100vh;
 }
 
 .profile-card {
@@ -53,7 +60,7 @@ body {
     text-align: center;
 }
 
-.interest {
+.interests {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -72,13 +79,50 @@ body {
 
 .interest-card:hover{
     background-color: black;
-    transform: translateY(-5px);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.skill-card {
+    background-color: #4B4E53;
+    border-radius: 5px;
+    padding: 8px;
+    text-align: center;
 }
 
 
 .content {
-    display: content-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 
+    background-color: #292929;
+    width: 100%;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.navbar {
+    position: sticky;
+
+    top: 0;
+    background-color: #4B4E53;
+    border-radius: 15px;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #ffd400;
+    
 }
 
 .project-grid {
