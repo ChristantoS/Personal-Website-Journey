@@ -7,11 +7,11 @@ html {
     box-sizing: border-box;
 }
 
-hr {
-    border: none;
-    height: 1px;
-    background-color: #555;
-    margin: 10px 0;
+hr { 
+    width: 100%; 
+    border: 0; 
+    border-top: 1px solid #4B4E53; 
+    margin: 20px 0;
 }
 
 a {
@@ -41,7 +41,7 @@ body {
     position: sticky;
     flex-shrink: 0;
 
-    width: 300px;
+    width: 275px;
     top: 0px;
     height: 100vh;
 }
@@ -51,6 +51,7 @@ body {
 .profile-card {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     background-color: #292929;
     gap: 15px;
@@ -58,11 +59,22 @@ body {
     border-radius: 25px;
 }
 
-.profile-picture {
+.profile-card-picture {
     background-color: #4B4E53;
     border-radius: 25px;
 
+    object-fit: cover;
+
     text-align: center;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 25px;
+    position: relative;
+    z-index: 100;
 }
 
 .name {
@@ -118,6 +130,8 @@ body {
     width: 100%;
     border-radius: 25px;
     padding: 20px;
+    flex: 1;
+    min-width: 0;
 }
 
 .navbar {
