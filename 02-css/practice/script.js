@@ -1,5 +1,3 @@
-alert("JS Jalan");
-
 const allCards = document.querySelectorAll('.project-card');
 
 allCards.forEach(card => {

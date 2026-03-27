@@ -96,6 +96,8 @@ body {
 .profile-card-picture {
     background-color: #4B4E53;
     border-radius: 25px;
+    width: 150px;
+    height: 150px;
 
     object-fit: cover;
 
@@ -137,7 +139,7 @@ body {
 }
 
 .interest-card:hover{
-    background-color: black;
+    background-color: #666;
     transform: translateY(-2px);
     cursor: pointer;
 }
@@ -177,11 +179,28 @@ body {
 }
 
 .skill-card {
-    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: #4B4E53;
-    border-radius: 5px;
-    padding: 8px;
-    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.skill-card img{
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skill-card:hover img{
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
 }
 
 
