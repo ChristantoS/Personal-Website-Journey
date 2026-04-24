@@ -1,37 +1,81 @@
-/*----- Section Tab Animation ----- */
-const navButtons = document.querySelectorAll('.nav-btn');
-const sections = document.querySelectorAll('.content-section')
+//================= TYPING ANIMATION
+const textElement = document.getElementById('typing-text');
+//const, kalau udah diisi nilainya ga boleh diubah sepanjang kode
 
-navButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-target');
+const phrases = ["whoami", "Christanto"];
+let phraseIndex = 0; //Mulai dari kalimat pertama
+//let, nilainya bisa berubah-ubah seiring jalannya program
+let charIndex = 0; //Mulai dari huruf pertama
+let isDeleting = false; //Status apakah sedang mengapus atau mengetik, false = mengetik
 
-        // Delete "active" class from all button and section
-        navButtons.forEach(b => b.classList.remove('active'));
-        sections.forEach(s => s.classList.remove('active'));
+function typeEffect() {
+    const currentPhrase = phrases[phraseIndex];
 
-        // Adding "active" class for selecten button and section
-        btn.classList.add('active');
-        document.getElementById(target).classList.add('active');
-    });
+    //Logika hapus dan ketik
+    if(isDeleting) {
+        //Ambil teks dari huruf ke-0 hingga huruf ke-(index sekarang - 1)
+        textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        //Ambil teks dari huruf ke-0 hingga huruf ke-(index sekarang + 1)
+        textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    //Penentu kecepatan (ketik vs hapus)
+    let typeSpeed = isDeleting ? 100 : 150;
+
+    //Jika kalimat sudah lengkap, diketik
+    if(!isDeleting && charIndex === currentPhrase.length) {
+        typeSpeed = 5000; //5 detik durasinya
+        isDeleting = true;
+    }
+    //Jika kalimat sudah habis, dihapus
+    else if(isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length; //Ganti ke kalimat berikutnya
+        typeSpeed = 500;
+    }
+
+    //Jalankan ulang fungsi ini setelah 'typeSpeed' milidetik
+    setTimeout(typeEffect, typeSpeed);
+}
+
+document.addEventListener('DOMContentLoaded', typeEffect);
+
+
+//================= SPACE INTERACTION
+window.addEventListener('keydown', function(e) { //Listener tombol keyboard
+
+    //Pengecekan apakah tombol yang ditekan SPACE (kode 32)
+    if(e.keyCode === 32 || e.keyCode === "Space") {
+
+        //Cegah halaman geser sedikit karena default behaviour spasi
+        e.preventDefault;
+
+        //Buka kunci scroll body
+        document.body.classList.add('allow-scroll');
+
+        //Langsung scroll ke section "About"
+        const aboutSection = document.getElementById('about');
+        aboutSection.scrollIntoView({behavior: 'smooth'});
+
+        //Kalau udah ada music bisa diplay
+        //playMusic();
+
+        console.log("Space pressed! Portal Opened.")
+    }
+
+    document.getElementById('navbar').classList.add('visible');
 });
 
+/*Menambahkan musik
+const bgMusic = new Audio('nama file musiknya');
+bgMusic.loop = true; //Biar mutar terus
 
-
-/* ----- Portfolio Card Toggle ----- */
-const allCards = document.querySelectorAll('.project-card');
-
-allCards.forEach(card => {
-
-    card.addEventListener('click', () => {
-        console.log("Kamu baru saja klik kartu:", card.querySelector('.project-card-title').innerText);
-
-        card.classList.toggle('is-expanded');
-
-        allCards.forEach(otherCard => {
-            if (otherCard !== card) {
-                otherCard.classList.remove('is-expanded');
-            }
-        });
-    });
-});
+function playMusic() {
+    bgMusic.play().catch(error => {
+        console.log("Autoplay dicegah")
+    })
+}
+*/

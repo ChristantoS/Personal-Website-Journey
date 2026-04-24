@@ -1,275 +1,44 @@
 <!DOCTYPE html>
-
+<html lang="en"> <!--Screen reader, alat bantu baca tunanetra dan penyediaan fitur "Translate this page"-->
 <head>
-        <link rel="stylesheet" href="style.css">
-
-        <!-- Google Font Link -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-        <!-- DevIcon -->
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    </head>
+    <meta charset="UTF-8"> <!--Pengkodean standar dunia, supaya bisa pakai emoji, simbol spesial atau tanda baca tertentu-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Menyesuaikan lebar web dengan ukuran device-->
+    <title>Christanto | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
-    
-<div class="container">
-
-    <!-- Left Sidebar-->
-    <aside class="sidebar">
-        <div class="profile-card">
-
-            <!-- Profile Picture -->
-             <div class="profile-card-picture">
-                <img src="../proto_profile.jpeg" alt="Todo Christanto" class="profile-image">
-             </div>
-
-            <!-- Name -->
-            <h2 class="name">Todo Christanto</h2>
-
-            <!-- Interests -->
-            <div class="interests">
-
-                <div class="interest-card"><i>Cyber Security</i></div>
-                
-                <div class="interest-card"><i>Web Development</i></div>
-
-            </div>
-
-            <hr>
-
-            <!-- Skills -->
-            <div class="programming-skills-container">
-
-                <div class="programming-skills-track">
-
-                    <div class="programming-skill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-                    </div>
-                    <div class="programming-skill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
-                    </div>
-                    <div class="programming-skill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-                    </div>
-                    <div class="programming-skill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-                    </div>
-                    <div class="programming-skill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-                    </div>
-
-                    <!-- Duplicate for infinite loop-->
-                    <div class="programming-skill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-                    </div>
-                    <div class="programming-skill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
-                    </div>
-                    <div class="programmingskill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-                    </div>
-                    <div class="programming-skill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-                    </div>
-                    <div class="programmingskill-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-                    </div>
-
-                </div>
-
-            </div>
-
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <span class="logo">Christanto</span>
+            <ul class="nav-links">
+                <li><a href="about">About</a></li>
+                <li><a href="projects">Projects</a></li>
+                <li><a href="ctf-writeups">CTF-Writeups</a></li>
+                <li><a href="contact">Contact</a></li>
+                <div class="nav-pill"></div>
+            </ul>
         </div>
-    </aside>
+    </nav>
 
+    <section class="screen" id="home">
+        <div class="terminal-loader">
+            <h1>
+                <span class="prompt">>_ </span>
+                <span id="typing-text"></span>
+                <span class="blink-cursor">|</span>
+            </h1>
+        </div>
 
-    <!--Right Content-->
-    <main class="main-content">
+        <div class="start-hint">
+            <p>PRESS SPACE TO START!</p>
+        </div>
+    </section>
 
-        <!-- Navbar -->
-        <nav class="navbar">
+    <section class="screen" id="about">
+        <h2>_ls about</h2>
+    </section>
 
-            <button class="nav-btn active" data-target="about">About</button>
-            <button class="nav-btn" data-target="resume">Resume</button>
-            <button class="nav-btn" data-target="portfolio">Portfolio</button>
-            <button class="nav-btn" data-target="contact">Contact</button>
-
-        </nav>
-
-        <!-- About -->
-        <section id="about" class="content-section active">
-
-            <h2 class="section-title"><span class="cyber-symbol">&gt_</span> About Me</h2>
-
-            <div class="about-me-text">
-
-                <p>Hi! Thanks for visiting my website. I'm Todo Christanto, you can call me either Todo or Chris.</p>
-
-                <p>Currently, I'm an Informatics Engineering (Computer Science)
-                    student with a deep interest in the Cyber Security field.
-                    Millions of data was collected and stored on the internet, and most people thought that it was all safe.
-                    But after I entered the world of IT, I realize that internet is vulnerable and fragile. 
-                    There are thousands of loopholes we can found, but only a few we can secure.
-                    That problem encouraged me to become a part of internet Cyber Security.
-                </p>
-
-                <p>In terms of language, I'm a bilingual speaker of Bahasa Indonesia and 
-                    English. So feel free to reach me out in whichever language you're comfortable with!
-                </p>
-            
-                <p>This website was created as part of my personal project and as my online portfolio. 
-                    More projects are coming soon, and I'll keep this site updated as I grow!
-                </p>
-
-                <p>Thanks for visiting and reading my website! <b>~Todo Christanto</b></p>
-                
-            </div>
-
-            <!-- Programming -->
-            <h2 class="programming"><i class="fa-solid fa-code"></i>PROGRAMMING</h2>
-            
-            <div class="programming-skills">
-                
-                <div class="programming-skills-container">
-
-                    <div class="programming-skills-track">
-
-                        <div class="programming-skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-                        </div>
-                        <div class="programming-skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
-                        </div>
-                        <div class="programming-skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-                        </div>
-                        <div class="programming-skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-                        </div>
-                        <div class="programming-skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-                        </div>
-
-                        <!-- Duplicate for infinite loop-->
-                        <div class="programming-skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-                        </div>
-                        <div class="programming-skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
-                        </div>
-                        <div class="programmingskill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-                        </div>
-                        <div class="programming-skill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-                        </div>
-                        <div class="programmingskill-card">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        
-        </section>
-
-        <!-- Resume -->
-        <section id="resume" class="content-section">
-        
-            <h2 class="section-title"><span class="cyber-symbol">&gt_</span> Resume</h2>
-
-            <div class="project-grid">
-
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-card-picture">...</div>
-                    <div class="project-card-title"><b>PERSONAL WEBSITE</b></div>
-
-                    <div class="project-card-description">
-                        <p>This website was my first personal public project, that was started on 3 March 2026 and will updated as times goes on.</p>
-                    </div>
-
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">SOON</div>
-                <!-- Project 3 -->
-                <div class="project-card">SOON</div>
-
-            </div>
-
-        </section>
-
-        <!-- Portfolio -->
-        <section id="portfolio" class="content-section">
-
-            <h2 class="section-title"><span class="cyber-symbol">&gt_</span> Portfolio</h2>
-
-            <div class="achievement-grid">
-
-                <!-- Achievement 1 -->
-                <div class="achievement-card">
-
-                    <div class="achievement-card-picture">...</div>
-                    <div class="achievement-card-title"><b>Achievement 1</b></div>
-
-                    <div class="achievement-card-description">Description</div>
-
-                </div>
-
-                <!-- Achievement 2 -->
-                <div class="achievement-card">SOON</div>
-                <!-- Achievement 3 -->
-                <div class="achievement-card">SOON</div>
-            
-            </div>
-
-        </section>
-
-        <!-- Contacts -->
-        <section id="contact" class="content-section">
-
-            <h2 class="section-title"><span class="cyber-symbol">&gt_</span> Contact</h2>
-
-            <div class="contacts-wrapper">
-
-                <form action="https://formspree.io/f/mojpjyvz" method="POST" class="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="_replyto" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Comment here..." required></textarea>
-                    <button type="submit" class="contact-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-                </form>
-
-            </div>
-
-            <div class="social-link-horizontal">
-                <a href="https://github.com/ChristantoS" class="contact-link" target="_blank">
-                    <i class="fab fa-github"></i> Github</a>
-                <a href="https://instagram.com/christanto.ss" class="contact-link" target="_blank">
-                    <i class="fab fa-instagram"></i> Instagram</a>
-                <a href="https://linkedin.com/in/todo-christanto-86a895378" class="contact-link" target="_blank">
-                    <i class="fab fa-linkedin"></i> LinkedIn</a>
-            </div>
-
-            <footer class="social-account-horizontal">
-                <p><i class="fab fa-discord"></i> serpent.ss</p>
-                <p><i class="fa-solid fa-envelope"></i> todotodo0420@gmail.com</p>
-            </footer>
-
-        </section>
-    
-    </main>
-
-</div>
-
-<!-- JS Setup -->
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
+</html>
