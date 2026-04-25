@@ -10,9 +10,19 @@ html {
 }
 
 body {
-    background-color: #0A192F;
     color: white;
     overflow: hidden;
+}
+
+/*========== HOME SECTION */
+
+#home {
+    background: linear-gradient(to bottom,
+        #0E0B14,
+        #0A192F,
+        #112240);
+
+    min-height: 100vh;
 }
 
 .screen {
@@ -49,6 +59,14 @@ body {
     overflow-y: auto !important;
 }
 
+/*========== ABOUT SECTION */
+
+#about {
+    background: linear-gradient(to bottom, #112240);
+
+    min-height: 100vh;
+}
+
 .navbar {
     position: fixed; /*Tetap melayang walau discroll*/
     top: 20px;
@@ -64,14 +82,17 @@ body {
 }
 
 .nav-container {
-    background: #112240;
-    backdrop-filter: blur(10px);
-    border: 1px solid #64FFDA;
     padding: 10px 30px;
     border-radius: 25px;
     display: flex;
     align-items: center;
     gap: 40px;
+
+    background: rgba(17, 34, 64, 0.3);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(100, 255, 218, 0.5);
+
+    box-shadow: 0 2px 4px rgba(100, 255, 218, 0.4);
 }
 
 .nav-links {
@@ -90,4 +111,10 @@ body {
 
 .nav-links a:hover{
     color: #38BDF8;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }

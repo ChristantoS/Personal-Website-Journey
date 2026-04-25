@@ -1,4 +1,4 @@
-//================= TYPING ANIMATION
+//================ TYPING ANIMATION
 const textElement = document.getElementById('typing-text');
 //const, kalau udah diisi nilainya ga boleh diubah sepanjang kode
 
