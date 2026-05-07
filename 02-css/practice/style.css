@@ -56,7 +56,7 @@ body {
 }
 
 .allow-scroll {
-    overflow-y: auto !important;
+    overflow-y: scroll !important;
 }
 
 /*========== ABOUT SECTION */
@@ -67,18 +67,131 @@ body {
     min-height: 100vh;
 }
 
+.about-content {
+    width: 80%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ==== ROW STYLING ==== */
+.about-row-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /*Size bio > music*/
+    gap: 20px;
+}
+
+    /*=== Kotak-kotak (bio, music, slider) === */
+.bio-card, .music-card, .tools-slider {
+    border: 1px solid rgba(100, 255, 218, 0.4);
+    padding: 20px;
+    background: rgba(17, 34, 64, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+    /*=== Stacks icon container ===*/
+@keyframes jiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.jiggle {
+    animation: jiggle 2s infinite ease-in-out;
+}
+
+/* Tambahkan delay biar goyangnya nggak barengan (biar natural) */
+.icon-box:nth-child(2) { animation-delay: 0.2s; }
+.icon-box:nth-child(3) { animation-delay: 0.4s; }
+.icon-box:nth-child(4) { animation-delay: 0.6s; }
+
+.stacks-icons {
+    gap: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: #E0E0E0;
+    border-radius: 12px;
+}
+
+.icon-box img {
+    width: 70%;
+    height: auto;
+}
+
+/*-=-=- Music -=-=-*/
+.music-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.music-title {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #64ffda;
+}
+
+.music-artist {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+/* ==-- Garis berjalan --==*/
+.progress-bar {
+    width: 30%;
+    height: 100%;
+    background: #64ffda;
+    box-shadow: 0 0 10px #64ffda;
+    border-radius: 2px;
+}
+
+.control-btn {
+    background: none;
+    border: 1px solid #64ffda;
+    color: #64ffda;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.control-btn:hover{
+    background: rgba(100, 255, 218, 0.2);
+    transform: scale(1.1);
+}
+
+/*------ Navbar */
 .navbar {
     position: fixed; /*Tetap melayang walau discroll*/
     top: 20px;
     left: 50%;
     transform: translateX(-50px); /*Supaya tepat ditengah layar*/
-    z-index: 1000;
+    z-index: 9999;
     opacity: 0; /*Sembunyikan dulu sebelum space ditekan*/
+    pointer-events: none;
     transition: opacity 0.5s ease;
 }
 
 .navbar.visible {
     opacity: 1;
+    pointer-events: auto;
 }
 
 .nav-container {
@@ -99,6 +212,7 @@ body {
     position: relative;
     display: flex;
     list-style: none;
+    align-items: center;
     gap: 20px;
 }
 
@@ -111,10 +225,4 @@ body {
 
 .nav-links a:hover{
     color: #38BDF8;
-}
-
-.bento-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
 }

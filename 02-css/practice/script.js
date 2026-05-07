@@ -1,4 +1,6 @@
 //================ TYPING ANIMATION
+let loopCount = 0;
+
 const textElement = document.getElementById('typing-text');
 //const, kalau udah diisi nilainya ga boleh diubah sepanjang kode
 
@@ -9,35 +11,33 @@ let charIndex = 0; //Mulai dari huruf pertama
 let isDeleting = false; //Status apakah sedang mengapus atau mengetik, false = mengetik
 
 function typeEffect() {
+    loopCount++;
+    if(loopCount > 500) return;
+
     const currentPhrase = phrases[phraseIndex];
 
-    //Logika hapus dan ketik
-    if(isDeleting) {
-        //Ambil teks dari huruf ke-0 hingga huruf ke-(index sekarang - 1)
+    if(isDeleting) { // Pakai isDeleting
         textElement.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
     } else {
-        //Ambil teks dari huruf ke-0 hingga huruf ke-(index sekarang + 1)
         textElement.textContent = currentPhrase.substring(0, charIndex + 1);
         charIndex++;
     }
 
-    //Penentu kecepatan (ketik vs hapus)
-    let typeSpeed = isDeleting ? 100 : 150;
+    // Ganti 'typing' jadi 'isDeleting'
+    let typeSpeed = isDeleting ? 100 : 150; 
 
-    //Jika kalimat sudah lengkap, diketik
     if(!isDeleting && charIndex === currentPhrase.length) {
-        typeSpeed = 5000; //5 detik durasinya
-        isDeleting = true;
-    }
-    //Jika kalimat sudah habis, dihapus
+        typeSpeed = 5000; 
+        isDeleting = true; // Ganti 'typing' jadi 'isDeleting'
+    } 
     else if(isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length; //Ganti ke kalimat berikutnya
+        isDeleting = false; // Ganti 'typing' jadi 'isDeleting'
+        phraseIndex = (phraseIndex + 1) % phrases.length;
         typeSpeed = 500;
     }
 
-    //Jalankan ulang fungsi ini setelah 'typeSpeed' milidetik
+    console.log("Index now: ", charIndex);
     setTimeout(typeEffect, typeSpeed);
 }
 
@@ -45,32 +45,32 @@ document.addEventListener('DOMContentLoaded', typeEffect);
 
 
 //================= SPACE INTERACTION
-window.addEventListener('keydown', function(e) { //Listener tombol keyboard
+window.addEventListener('keydown', function(e) { 
 
-    //Pengecekan apakah tombol yang ditekan SPACE (kode 32)
-    if(e.keyCode === 32 || e.keyCode === "Space") {
+    // Perbaikan: Pakai e.code untuk string "Space"
+    if(e.keyCode === 32 || e.code === "Space") {
 
-        //Cegah halaman geser sedikit karena default behaviour spasi
-        e.preventDefault;
+        // Perbaikan: Tambahkan kurung () karena ini fungsi
+        e.preventDefault();
 
-        //Buka kunci scroll body
         document.body.classList.add('allow-scroll');
 
-        //Langsung scroll ke section "About"
         const aboutSection = document.getElementById('about');
-        aboutSection.scrollIntoView({behavior: 'smooth'});
+        if(aboutSection) {
+            aboutSection.scrollIntoView({behavior: 'smooth'});
+        }
 
-        //Kalau udah ada music bisa diplay
-        //playMusic();
+        const navbar = document.getElementById('navbar');
+        if(navbar) {
+            navbar.classList.add('visible');
+        }
 
-        console.log("Space pressed! Portal Opened.")
+        console.log("Access Granted: Welcome User!");
     }
-
-    document.getElementById('navbar').classList.add('visible');
 });
 
-/*Menambahkan musik
-const bgMusic = new Audio('nama file musiknya');
+/*
+const bgMusic = new Audio(backsound.mp3);
 bgMusic.loop = true; //Biar mutar terus
 
 function playMusic() {
