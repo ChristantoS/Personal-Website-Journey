@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"> <!--Screen reader, alat bantu baca tunanetra dan penyediaan fitur "Translate this page"-->
+<head>
+    <meta charset="UTF-8"> <!--Pengkodean standar dunia, supaya bisa pakai emoji, simbol spesial atau tanda baca tertentu-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Menyesuaikan lebar web dengan ukuran device-->
+    <title>Christanto | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <span class="logo">Christanto</span>
+            <ul class="nav-links">
+                <li><a href="about">About</a></li>
+                <li><a href="projects">Projects</a></li>
+                <li><a href="ctf-writeups">CTF-Writeups</a></li>
+                <li><a href="contact">Contact</a></li>
+                <div class="nav-pill"></div>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="screen" id="home">
+        <div class="terminal-loader">
+            <h1>
+                <span class="prompt">></span>
+                <span id="typing-text"></span>
+                <span class="blink-cursor">_</span>
+            </h1>
+        </div>
+
+        <div class="start-hint">
+            <p>PRESS SPACE TO START!</p>
+        </div>
+    </section>
+
+    <section class="screen" id="about">
+        <div class="about-content">
+
+            <div class="about-row-top">
+                <div class="bio-card">
+                    <p>Hi there! I'm <b>Todo Christanto</b> - just call me <b>Chris</b></p>
+                    <br>
+                    <p>Computer Science student focus in Cybersecurity (Red Team) and Web Development.</p>
+                </div>
+
+                <div class="music-card">
+                    <div class="music-info">
+                        <span class="music-title">Lost Soul</span>
+                        <span class="music-artist">NBSPLV</span>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+
+                    <div class="music-control">
+                        <button id="play-btn" class="control-btn">▶</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-bottom-row">
+                <h3>>_ ls stacks</h3>
+
+                <div class="stacks-container">
+                    <div class="stacks-icons">
+                        <div class="icon-box jiggle"></div>
+                        <div class="icon-box jiggle"></div>
+                        <div class="icon-box jiggle"></div>
+                        <div class="icon-box jiggle"></div>
+                    </div>
+
+                    <div class="tools-slider">
+                        <p>Animation for tools</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
