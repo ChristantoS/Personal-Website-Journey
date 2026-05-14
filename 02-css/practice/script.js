@@ -2,6 +2,15 @@
 let loopCount = 0;
 let isAccessGranted = false;
 
+const music = new Audio('../backsound.mp3');
+const playBtn = document.getElementById('play-btn');
+const volumeControl = document.getElementById('volume-control');
+const volumeIcon = document.querySelector('.volume-icon');
+//========================================================================================================================
+music.volume = volumeControl.value;
+
+
+
 const textElement = document.getElementById('typing-text');
 //const, kalau udah diisi nilainya ga boleh diubah sepanjang kode
 
@@ -82,8 +91,6 @@ window.addEventListener('keydown', function(e) {
 });
 
 //================= MUSIC PLAY
-const music = new Audio('../backsound.mp3');
-const playBtn = document.getElementById('play-btn');
 
 playBtn.addEventListener('click', () => {
     if (music.paused) {
@@ -120,3 +127,23 @@ progressContainer.addEventListener('click', (e) => {
     music.currentTime = (clickX / width) * duration;
 
 })
+
+//================= MUSIC VOLUME CONTROL
+volumeControl.addEventListener('input', (e) => {
+    // Ambil nilai slider (0.0 - 1.0)
+    const volumeValue = parseFloat(e.target.value);
+    
+    // Terapkan ke audio
+    music.volume = volumeValue;
+
+    // Ganti ikon berdasarkan tingkat volume
+    if (volumeValue === 0) {
+        volumeIcon.textContent = '🔇';
+    } else if (volumeValue < 0.5) {
+        volumeIcon.textContent = '🔉';
+    } else {
+        volumeIcon.textContent = '🔊';
+    }
+
+    console.log(`Volume: ${Math.round(volumeValue * 100)}%`);
+});
