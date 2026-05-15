@@ -110,7 +110,6 @@ body {
 
 .stacks-icons {
     gap: 50px;
-    margin-top: 20px;
     margin-bottom: 20px;
 
     display: flex;
@@ -124,10 +123,15 @@ body {
     height: 50px;
     background: #E0E0E0;
     border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.icon-box img {
-    width: 70%;
+.icon-box i {
+    font-size: 2rem;
+    width: 65%;
     height: auto;
 }
 
@@ -179,7 +183,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin-top: 15px;
 }
 
 .control-btn {
@@ -211,10 +214,7 @@ body {
 }
 
 #volume-control {
-    -webkit-appearance: none;
     width: 100px;
-    height: 4px;
-    background: #333;
     border-radius: 5px;
     outline: none;
     accent-color: #64ffda;
@@ -268,4 +268,65 @@ body {
 
 .nav-links a:hover{
     color: #38BDF8;
+}
+
+.tools-slider {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto 0;
+    overflow: hidden;
+
+    /* Left-Right Fade Effect */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+}
+
+@keyframes stacks-slide-animation {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.tools-slider-track {
+    width: max-content;
+    display: flex;
+    gap: 40px;
+
+    /* Infinite Slide Animation */
+    animation-name: stacks-slide-animation;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.tools-slider-card {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    margin-right: 37px;
+}
+
+.tools-slider-card img {
+    width: 70%;
+    height: auto;
 }
