@@ -11,19 +11,22 @@
 </head>
 
 <body>
+
+    <!-- ======== NAVBAR ======== -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <span class="logo">Christanto</span>
             <ul class="nav-links">
-                <li><a href="about">About</a></li>
-                <li><a href="projects">Projects</a></li>
-                <li><a href="ctf-writeups">CTF-Writeups</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#ctf-writeups">CTF-Writeups</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <div class="nav-pill"></div>
             </ul>
         </div>
     </nav>
 
+    <!-- ======== MAIN MENU ======== -->
     <section class="screen" id="home">
         <div class="terminal-loader">
             <h1>
@@ -38,13 +41,16 @@
         </div>
     </section>
 
+    <!-- ======== Section - About ======== -->
     <section class="screen" id="about">
         <div class="about-content">
 
-            <h3>>_ ls intruduction</h3>
+            <h2>>_ ls intruduction</h2>
 
+            <!-- //////// ABOUT - Introduction & Music \\\\\\\\ -->
             <div class="about-row-top">
                 
+                <!-- -=-=-=-= ABOUT - Introduction =-=-=-=- -->
                 <div class="bio-card">
                     <p>Hi there! I'm <b>Todo Christanto</b> - just call me <b>Chris</b></p>
                     <br>
@@ -53,6 +59,7 @@
                     <p>Bilingual Speaker (Bahasa & English) - Open for Work, Collaboration and Discussion</p>
                 </div>
 
+                <!-- -=-=-=-= ABOUT - Music =-=-=-=- -->
                 <div class="music-card">
                     <div class="music-info">
                         <span class="music-title">Lost Soul</span>
@@ -74,10 +81,12 @@
                 </div>
             </div>
 
-            <h3>>_ ls stacks</h3>
+            <h2>>_ ls stacks</h2>
 
+            <!-- //////// ABOUT - Jiggle & Slider \\\\\\\\ -->
             <div class="about-bottom-row">
 
+                <!-- -=-=-=-= ABOUT - Jiggle Icon =-=-=-=- -->
                 <div class="stacks-container">
                     <div class="stacks-icons">
                         <div class="icon-box jiggle">
@@ -97,6 +106,7 @@
                         </div>
                     </div>
 
+                    <!-- -=-=-=-= ABOUT - Infinite Slider =-=-=-=- -->
                     <div class="tools-slider">
 
                         <div class="tools-slider-track">
@@ -138,6 +148,68 @@
 
         </div>
     </section>
+
+    <!-- ======== Section - Projects ======== -->
+    <section class="screen" id="projects">
+        <h2>>_ ls projects-list</h2>
+
+        <div class="projects-grid">
+            <div class="projects-card">
+                <div class="projects-thumbnail">
+                    <img src="#" alt="Project Preview">
+                </div>
+
+                <div class="projects-content">
+                    <h3 class="projects-title">Personal Website</h3>
+                    <p class="projects-desc">Website build Portfolio.</p>
+        
+                    <div class="projects-link">
+                        <a href="#" target="_blank">Github Repo (SOON)</a>
+                        <a href="#" class="btn-link live">Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="projects-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+
+            <div class="projects-card">
+                <div class="projects-thumbnail">
+                    <img src="#" alt="Project Preview">
+                </div>
+
+                <div class="projects-content">
+                    <h3 class="projects-title">TITLE</h3>
+                    <p class="projects-desc">DESCRIPTION</p>
+        
+                    <div class="projects-link">
+                        <a href="#" target="_blank">Github Repo (SOON)</a>
+                        <a href="#" class="btn-link live">Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="projects-tags">
+                    <span>TAGS</span>
+                    <span>TAGS</span>
+                    <span>TAGS</span>
+                </div>
+            </div>
+
+            <div class="projects-wrapper">
+                <button id="prev-btn" class="nav-btn"> < </button>
+
+                <div class=""projects-grid>
+                </div>
+
+                <button id="next-btn" class="nav-btn"> > </button>
+            </div>
+
+        </div>
+
+     </section>
 
     <script src="script.js"></script>
 </body>

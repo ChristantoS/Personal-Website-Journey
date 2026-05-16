@@ -14,7 +14,7 @@ body {
     overflow: hidden;
 }
 
-/*========== HOME SECTION */
+/*========== HOME SECTION ==========*/
 
 #home {
     background: linear-gradient(to bottom,
@@ -59,7 +59,7 @@ body {
     overflow-y: scroll !important;
 }
 
-/*========== ABOUT SECTION */
+/*========== ABOUT SECTION ==========*/
 
 #about {
     background: linear-gradient(to bottom, #112240);
@@ -306,7 +306,7 @@ body {
 .tools-slider-track {
     width: max-content;
     display: flex;
-    gap: 40px;
+    gap: 35px;
 
     /* Infinite Slide Animation */
     animation-name: stacks-slide-animation;
@@ -323,10 +323,96 @@ body {
 
     width: 50px;
     height: 50px;
-    margin-right: 37px;
+    margin-right: 35px;
 }
 
 .tools-slider-card img {
     width: 70%;
     height: auto;
+}
+
+/*========== PROJECTS SECTION ==========*/
+#projects {
+    background: linear-gradient(to bottom, #112240);
+
+    min-height: 100vh;
+}
+
+.projects-grid {
+    display: flex;
+    flex: row;
+    gap: 20px;
+
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+}
+
+.projects-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.projects-card {
+    background: rgba(255, 255, 255, 0.05); /* Sedikit transparan */
+    border: 1.5px solid rgba(100, 255, 218, 0.3); /* Border neon tipis */
+    border-radius: 20px;
+    width: 300px;
+    overflow: hidden; /* Biar thumbnail nggak keluar jalur */
+    transition: 0.3s;
+    text-align: center; /* Sesuai gambar, teks rata tengah */
+
+    flex: 0 0 300px;
+}
+
+/* Thumbnail Section */
+.projects-thumbnail {
+    width: 100%;
+    height: 180px;
+    background: #64FFDA; /* Warna placeholder sesuai gambar kamu */
+    overflow: hidden;
+}
+
+.projects-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar gambar nggak gepeng */
+}
+
+/* Content Section */
+.projects-content {
+    padding: 20px;
+}
+
+.projects-title {
+    color: #64FFDA;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    border-top: 1px solid rgba(255,255,255,0.2); /* Garis di atas judul */
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* Garis di bawah judul */
+    padding: 5px 0;
+}
+
+.projects-desc {
+    font-size: 0.85rem;
+    color: #ccd6f6;
+    margin: 15px 0;
+    line-height: 1.4;
+}
+
+/* Kapsul Tags di bawah */
+.projects-tags {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.projects-tags span {
+    background: #fff;
+    color: #0a192f;
+    padding: 2px 12px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
 }
