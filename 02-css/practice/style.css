@@ -14,6 +14,7 @@ body {
     overflow: hidden;
 }
 
+
 /*========== HOME SECTION ==========*/
 
 #home {
@@ -338,6 +339,25 @@ body {
     min-height: 100vh;
 }
 
+#projects h2 {
+    text-align: left;
+    width: 100%;
+    max-width: 950px;    /* Samakan dengan max-width .projects-wrapper kamu */
+    margin: 0 auto 20px auto; /* Centering block h2-nya, tapi teks di dalamnya rata kiri */
+    padding-left: 50px;   /*Dorong sedikit ke kanan agar lurus dengan posisi kartu pertama */
+    box-sizing: border-box;
+}
+
+.projects-wrapper { /*Parent*/
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 50px; /* Jarak card dengan navigation button*/
+    margin: 50px auto 0;
+}
+
 .projects-grid {
     display: flex;
     flex: row;
@@ -415,4 +435,31 @@ body {
     border-radius: 15px;
     font-size: 0.7rem;
     font-weight: bold;
+}
+
+/*Right Left Navigation*/
+
+.nav-btn {
+    position: absolute;
+    top: 50px;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(100, 255, 218, 0.2);
+    border: 1px solid #64FFDA;
+    color: #64FFDA;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#next-btn { right: 0}
+#prev-btn { left: 0}
+
+.nav-btn::hover{
+    background: #64FFDA;
+    color: #0A192F;
+    box-shadow: 0 0 15px #64FFDA;
 }

@@ -147,3 +147,25 @@ volumeControl.addEventListener('input', (e) => {
 
     console.log(`Volume: ${Math.round(volumeValue * 100)}%`);
 });
+
+//================= PROJECTS NAVIGATION
+const projectsGrid = document.querySelector('.projects-grid');
+const nextBtn = document.getElementById('next-btn');
+const prevBtn = document.getElementById('prev-btn');
+
+    //Sekali geser dapat berapa pixel (gap + lebar kartu)
+const scrollAmountR = 320;
+
+nextBtn.addEventListener('click', () => {
+    projectsGrid.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth' //Biar gesernya gak patah
+    })
+})
+
+prevBtn.addEventListener('click', () => {
+    projectsGrid.scroll({
+        right: scrollAmount,
+        behavior: 'smooth'
+    })
+})
