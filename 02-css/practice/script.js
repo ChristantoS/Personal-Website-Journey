@@ -154,18 +154,56 @@ const nextBtn = document.getElementById('next-btn');
 const prevBtn = document.getElementById('prev-btn');
 
     //Sekali geser dapat berapa pixel (gap + lebar kartu)
-const scrollAmountR = 320;
+const scrollAmount = 320;
 
+    //=-=-=-=-=- Logika Geser Layar -=-=-=-=-=
 nextBtn.addEventListener('click', () => {
-    projectsGrid.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth' //Biar gesernya gak patah
-    })
-})
+    const isEnd = projectsGrid.scrollLeft + projectsGrid.clientWidth >= projectsGrid.scrollWidth - 5;
+    
+    if (isEnd) {
+        // Kalau sudah mentok, balikkan ke paling awal (kartu 1)
+        projectsGrid.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+        projectsGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+});
 
 prevBtn.addEventListener('click', () => {
-    projectsGrid.scroll({
-        right: scrollAmount,
-        behavior: 'smooth'
-    })
-})
+    if (projectsGrid.scrollLeft <= 5) {
+        // Kalau di awal diklik kiri, langsung lompat ke paling ujung kanan
+        projectsGrid.scrollTo({ left: projectsGrid.scrollWidth, behavior: 'smooth' });
+    } else {
+        projectsGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
+});
+
+    //=-=-=-=-=- 3 Middle Highlighted Cards -=-=-=-=-=
+function updateCardHighlight() {
+    const cards = document.querySelectorAll('.projects-card');
+
+    //-=-=-=- Cari titik tengah dari layar -=-=-=-
+    const gridRect = projectsGrid.getBoundingClientRect();
+    const gridCenter = gridRect.left + (gridRect.width/2);
+
+    cards.forEach((card) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + (cardRect.width / 2);
+
+        //-=-=-=- Hitung jarak pusat kartu ke tengah layar -=-=-=-
+        const distanceToCenter = Math.abs(gridCenter - cardCenter);
+
+        if (distanceToCenter < 400) {
+            card.classList.add('active-highlight');
+        } else {
+            card.classList.remove('active-highlight');
+        }
+    });
+}
+
+// Jalankan fungsi deteksi setiap kali user scroll grid-nya
+projectsGrid.addEventListener('scroll', updateCardHighlight);
+
+// Jalankan sekali di awal saat web pertama kali dimuat biar langsung mendeteksi
+window.addEventListener('load', updateCardHighlight);
+// Jalankan juga kalau ukuran layar di-resize biar kalkulasinya tetap akurat
+window.addEventListener('resize', updateCardHighlight);

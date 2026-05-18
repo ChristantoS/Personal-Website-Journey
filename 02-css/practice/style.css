@@ -68,12 +68,15 @@ body {
     min-height: 100vh;
 }
 
-.about-content {
-    width: 80%;
-    max-width: 900px;
+.about-base {
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+
+    width: 100%;
+    max-width: 900px;
     gap: 30px;
+    margin: 0 auto;
 }
 
 /* ==== ROW STYLING ==== */
@@ -268,7 +271,7 @@ body {
 }
 
 .nav-links a:hover{
-    color: #38BDF8;
+    color: #64ffda;
 }
 
 .tools-slider {
@@ -342,30 +345,33 @@ body {
 #projects h2 {
     text-align: left;
     width: 100%;
-    max-width: 950px;    /* Samakan dengan max-width .projects-wrapper kamu */
-    margin: 0 auto 20px auto; /* Centering block h2-nya, tapi teks di dalamnya rata kiri */
-    padding-left: 50px;   /*Dorong sedikit ke kanan agar lurus dengan posisi kartu pertama */
+    max-width: 900px; 
+    margin: 40px auto 20px auto; 
+    padding-left: 0;   
     box-sizing: border-box;
 }
 
-.projects-wrapper { /*Parent*/
-    position: relative;
-    display: flex;
-    align-items: center;
+.projects-wrapper {
+    position: relative; /* WAJIB: Biar tombol absolute tahu batas atas-bawah-kiri-kanan */
     width: 100%;
-    max-width: 1000px;
-    padding: 0 50px; /* Jarak card dengan navigation button*/
-    margin: 50px auto 0;
+    margin: 0 auto;    /* Rata tengah secara horizontal */
+    padding: 0 60px;    /* Ruang aman di kiri-kanan agar tombol tidak menimpa kartu */
+    box-sizing: border-box;
+
+    overflow: hidden;
 }
 
 .projects-grid {
     display: flex;
-    flex: row;
-    gap: 20px;
+    flex-direction: row;
+    gap: 30px;
 
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 20px 0;
+    padding: 30px 0;
+
+    padding-left: 35%;
+    padding-right: 35%;
 }
 
 .projects-grid::-webkit-scrollbar {
@@ -373,15 +379,29 @@ body {
 }
 
 .projects-card {
+    flex: 0 0 300px;
+    height: 400px;
+
     background: rgba(255, 255, 255, 0.05); /* Sedikit transparan */
     border: 1.5px solid rgba(100, 255, 218, 0.3); /* Border neon tipis */
     border-radius: 20px;
-    width: 300px;
+
     overflow: hidden; /* Biar thumbnail nggak keluar jalur */
     transition: 0.3s;
     text-align: center; /* Sesuai gambar, teks rata tengah */
 
-    flex: 0 0 300px;
+    /* Efek Redup Keseluruh Cards*/
+    opacity: 0.3;
+    filter: blur(0.5px);
+    transition: all 0.4 ease;
+}
+
+.projects-card.active-highlight { /* 3 Hightlighted Cards*/
+    opacity: 1;
+    filter: blur(0);
+    border-color: #64FFDA;
+    box-shadow: 0 10px 25px -10px rgba(100, 255, 218, 0.25);
+    transform: scale(1.02); /* Sedikit naik ukuran*/
 }
 
 /* Thumbnail Section */
@@ -440,25 +460,28 @@ body {
 /*Right Left Navigation*/
 
 .nav-btn {
-    position: absolute;
-    top: 50px;
+    position: absolute; /* Biar kalau keluar dari jalur grid, jadi kelihatan melayang*/
+    top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
-    background: rgba(100, 255, 218, 0.2);
+    z-index: 100;
+
+    background: rgba(100, 255, 218, 0.9);
     border: 1px solid #64FFDA;
-    color: #64FFDA;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
     transition: 0.3s;
+
+
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 
-#next-btn { right: 0}
-#prev-btn { left: 0}
+#next-btn { right: 15px}
+#prev-btn { left: 15px}
 
-.nav-btn::hover{
+.nav-btn:hover{
     background: #64FFDA;
     color: #0A192F;
     box-shadow: 0 0 15px #64FFDA;
