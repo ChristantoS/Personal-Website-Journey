@@ -1,9 +1,15 @@
-Hey! This is my personal website journey!
-I've been started to learn to make my own website since 3 March 2026.
-I'm an absolute beginner, so advice and suggestion is meaningful for me.
+# Christanto Online Website
+_Start : 3 March 2026 | End : (SOON)_
 
-Website Target : Interactive & User Friendly
+> Personal Website with Simple-Modern style
 
-Personal Target : Consistency & Professionalism
+### External
++ <ins> Design</ins> : Figma
++ <ins> Logo & Icons</ins> : DevIcons
+
+### Stacks
++ <ins> Code Editor</ins> : VS Code
++ <ins> Front-End</ins> : CSS
++ <ins> Back-End</ins> : HTML & Java Script
 
 ~ Monday, 3 March 2026
