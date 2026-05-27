@@ -338,7 +338,6 @@ body {
 /*========== PROJECTS SECTION ==========*/
 #projects {
     background: linear-gradient(to bottom, #112240);
-
     min-height: 100vh;
 }
 
@@ -346,41 +345,85 @@ body {
     text-align: left;
     width: 100%;
     max-width: 900px; 
-    margin: 40px auto 20px auto; 
-    padding-left: 0;   
+    margin: 30px auto 30px auto; 
     box-sizing: border-box;
 }
 
 .projects-wrapper {
-    position: relative; /* WAJIB: Biar tombol absolute tahu batas atas-bawah-kiri-kanan */
+    max-width: 1100px;
     width: 100%;
-    margin: 0 auto;    /* Rata tengah secara horizontal */
-    padding: 0 60px;    /* Ruang aman di kiri-kanan agar tombol tidak menimpa kartu */
-    box-sizing: border-box;
-
-    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
 }
 
-.projects-grid {
+.projects-wrapper i {
+    position: absolute;
+    
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    
+    background: rgba(10, 25, 47, 0.9);
+    border: 1px solid #64FFDA;
+    color: #64FFDA;
+    
     display: flex;
-    flex-direction: row;
-    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
+.projects-wrapper i:first-child {
+    left: -25px;
+}
+
+.projects-wrapper i:last-child {
+    right: -25px;
+}
+
+.projects-wrapper .projects-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+    gap: 16px;
     overflow-x: auto;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 30px 0;
-
-    padding-left: 35%;
-    padding-right: 35%;
+    scrollbar-width: 0;
 }
 
 .projects-grid::-webkit-scrollbar {
     display: none;
 }
 
+.projects-grid .projects-card {
+    scroll-snap-align: start;
+}
+
+.projects-grid.no-transition {
+    scroll-behavior: auto;
+}
+
+.projects-grid.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+.projects-grid.dragging .projects-card {
+    cursor: grab;
+    user-select: none;
+}
+
 .projects-card {
     flex: 0 0 300px;
-    height: 400px;
+    height: 450px;
 
     background: rgba(255, 255, 255, 0.05); /* Sedikit transparan */
     border: 1.5px solid rgba(100, 255, 218, 0.3); /* Border neon tipis */
@@ -391,23 +434,15 @@ body {
     text-align: center; /* Sesuai gambar, teks rata tengah */
 
     /* Efek Redup Keseluruh Cards*/
-    opacity: 0.3;
+    /* opacity: 0.3; */
     filter: blur(0.5px);
     transition: all 0.4 ease;
 }
 
-.projects-card.active-highlight { /* 3 Hightlighted Cards*/
-    opacity: 1;
-    filter: blur(0);
-    border-color: #64FFDA;
-    box-shadow: 0 10px 25px -10px rgba(100, 255, 218, 0.25);
-    transform: scale(1.02); /* Sedikit naik ukuran*/
-}
-
-/* Thumbnail Section */
+/* Projects-Card Content */
 .projects-thumbnail {
     width: 100%;
-    height: 180px;
+    height: 220px;
     background: #64FFDA; /* Warna placeholder sesuai gambar kamu */
     overflow: hidden;
 }
@@ -418,7 +453,6 @@ body {
     object-fit: cover; /* Biar gambar nggak gepeng */
 }
 
-/* Content Section */
 .projects-content {
     padding: 20px;
 }
@@ -440,7 +474,6 @@ body {
     line-height: 1.4;
 }
 
-/* Kapsul Tags di bawah */
 .projects-tags {
     display: flex;
     justify-content: center;
@@ -457,32 +490,15 @@ body {
     font-weight: bold;
 }
 
-/*Right Left Navigation*/
-
-.nav-btn {
-    position: absolute; /* Biar kalau keluar dari jalur grid, jadi kelihatan melayang*/
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 100;
-
-    background: rgba(100, 255, 218, 0.9);
-    border: 1px solid #64FFDA;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: 0.3s;
-
-
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+/* Mengatur Dimention Sesuai Ukuran Layar Device*/
+@media screen and (max-width: 600px) {
+    .projects-wrapper .projects-grid {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
 }
 
-#next-btn { right: 15px}
-#prev-btn { left: 15px}
-
-.nav-btn:hover{
-    background: #64FFDA;
-    color: #0A192F;
-    box-shadow: 0 0 15px #64FFDA;
+@media screen and (max-width: 300px) {
+    .projects-wrapper .projects-grid {
+        grid-auto-columns: 100%;
+    }
 }

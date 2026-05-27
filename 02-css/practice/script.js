@@ -149,61 +149,60 @@ volumeControl.addEventListener('input', (e) => {
 });
 
 //================= PROJECTS NAVIGATION
-const projectsGrid = document.querySelector('.projects-grid');
-const nextBtn = document.getElementById('next-btn');
-const prevBtn = document.getElementById('prev-btn');
+const projectsGrid = document.querySelector(".projects-grid");
+const arrowBtn = document.querySelectorAll(".projects-wrapper i");
+const firstCardWidth = projectsGrid.querySelector(".projects-card").offsetWidth;
+const projectsGridChildren = [...projectsGrid.children];
 
-    //Sekali geser dapat berapa pixel (gap + lebar kartu)
-const scrollAmount = 320;
+let isDragging = false, startX, startScrollLeft;
 
-    //=-=-=-=-=- Logika Geser Layar -=-=-=-=-=
-nextBtn.addEventListener('click', () => {
-    const isEnd = projectsGrid.scrollLeft + projectsGrid.clientWidth >= projectsGrid.scrollWidth - 5;
-    
-    if (isEnd) {
-        // Kalau sudah mentok, balikkan ke paling awal (kartu 1)
-        projectsGrid.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-        projectsGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
+let cardPerView = Math.round(projectsGrid.offsetWidth / firstCardWidth);
+
+projectsGridChildren.slice(-cardPerView).reverse().forEach(card => {
+    projectsGrid.insertAdjacentHTML("afterbegin", card.outerHTML);
 });
 
-prevBtn.addEventListener('click', () => {
-    if (projectsGrid.scrollLeft <= 5) {
-        // Kalau di awal diklik kiri, langsung lompat ke paling ujung kanan
-        projectsGrid.scrollTo({ left: projectsGrid.scrollWidth, behavior: 'smooth' });
-    } else {
-        projectsGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    }
+projectsGridChildren.slice(0, cardPerView).forEach(card => {
+    projectsGrid.insertAdjacentHTML("beforeend", card.outerHTML);
 });
 
-    //=-=-=-=-=- 3 Middle Highlighted Cards -=-=-=-=-=
-function updateCardHighlight() {
-    const cards = document.querySelectorAll('.projects-card');
+arrowBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+        projectsGrid.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
+    })
+})
 
-    //-=-=-=- Cari titik tengah dari layar -=-=-=-
-    const gridRect = projectsGrid.getBoundingClientRect();
-    const gridCenter = gridRect.left + (gridRect.width/2);
+const dragStart = (e) => {
+    isDragging = true;
+    projectsGrid.classList.add("dragging");
 
-    cards.forEach((card) => {
-        const cardRect = card.getBoundingClientRect();
-        const cardCenter = cardRect.left + (cardRect.width / 2);
-
-        //-=-=-=- Hitung jarak pusat kartu ke tengah layar -=-=-=-
-        const distanceToCenter = Math.abs(gridCenter - cardCenter);
-
-        if (distanceToCenter < 400) {
-            card.classList.add('active-highlight');
-        } else {
-            card.classList.remove('active-highlight');
-        }
-    });
+    startX = e.pageX;
+    startScrollLeft = projectsGrid.scrollLeft;
 }
 
-// Jalankan fungsi deteksi setiap kali user scroll grid-nya
-projectsGrid.addEventListener('scroll', updateCardHighlight);
+const dragging = (e) => {
+    if(!isDragging) return;
+    projectsGrid.scrollLeft = startScrollLeft - (e.pageX - startX);
+}
 
-// Jalankan sekali di awal saat web pertama kali dimuat biar langsung mendeteksi
-window.addEventListener('load', updateCardHighlight);
-// Jalankan juga kalau ukuran layar di-resize biar kalkulasinya tetap akurat
-window.addEventListener('resize', updateCardHighlight);
+const dragStop = () => {
+    isDragging = false;
+    projectsGrid.classList.remove("dragging");
+}
+
+const infiniteScroll = () => {
+    if(projectsGrid.scrollLeft === 0) {
+        projectsGrid.classList.add("no-transition");
+        projectsGrid.scrollLeft = projectsGrid.scrollWidth - (2 * projectsGrid.offsetWidth);
+        projectsGrid.classList.remove("no-transition");
+    } else if (Math.ceil(projectsGrid.scrollLeft) === projectsGrid.scrollWidth - projectsGrid.offsetWidth) {
+        projectsGrid.classList.add("no-transition");
+        projectsGrid.scrollLeft = projectsGrid.offsetWidth;
+        projectsGrid.classList.remove("no-transition");
+    }
+}
+
+projectsGrid.addEventListener('mousedown', dragStart);
+projectsGrid.addEventListener('mousemove', dragging);
+document.addEventListener('mouseup', dragStop);
+projectsGrid.addEventListener('scroll', infiniteScroll);
