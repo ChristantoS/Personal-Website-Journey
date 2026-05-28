@@ -90,6 +90,47 @@ window.addEventListener('keydown', function(e) {
     }
 });
 
+//================= Scroll-Driven Animation
+
+
+//================= DECRYPTION TEXT
+
+const decryptChars = "01$#/?@[]{}<>";
+
+function startDecryptEffect(element) {
+    const originalText = element.innerText;
+    let iteration = 0;
+    
+    clearInterval(element.decryptInterval);
+    
+    element.decryptInterval = setInterval(() => {
+        element.innerText = originalText
+            .split("")
+            .map((char, index) => {
+                if (index < iteration) {
+                    return originalText[index];
+                }
+                return decryptChars[Math.floor(Math.random() * decryptChars.length)];
+            })
+            .join("");
+            
+        if (iteration >= originalText.length) {
+            clearInterval(element.decryptInterval);
+        }
+        
+        iteration += 1 / 3; 
+    }, 30);
+}
+
+const decryptTitles = document.querySelectorAll("h2");
+decryptTitles.forEach(title => {
+
+    if (title.closest('#about')) {
+        startDecryptEffect(title);
+    }
+    
+});
+
 //================= MUSIC PLAY
 
 playBtn.addEventListener('click', () => {

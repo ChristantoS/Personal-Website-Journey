@@ -14,9 +14,18 @@ body {
     overflow: hidden;
 }
 
+    /* ===== DECRYPT TEXT ===== */
+h2.decrypt-effect {
+    letter-spacing: 2px;
 
-/*========== HOME SECTION ==========*/
+    text-align: left;
+    width: 100%;
+    max-width: 900px; 
+    margin: 30px auto 30px auto; 
+    box-sizing: border-box;
+}
 
+/*======================================= HOME SECTION =======================================*/
 #home {
     background: linear-gradient(to bottom,
         #0E0B14,
@@ -60,86 +69,76 @@ body {
     overflow-y: scroll !important;
 }
 
-/*========== ABOUT SECTION ==========*/
+
+
+/*====================================== ABOUT SECTION ======================================*/
 
 #about {
     background: linear-gradient(to bottom, #112240);
-
     min-height: 100vh;
-}
 
-.about-base {
     display: flex;
     flex-direction: column;
+    padding: 60px 0;
     box-sizing: border-box;
-
-    width: 100%;
-    max-width: 900px;
-    gap: 30px;
-    margin: 0 auto;
 }
 
-/* ==== ROW STYLING ==== */
-.about-row-top {
+.about-dashboard-grid {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.5fr 1fr; /*Size bio > music*/
+    grid-template-columns: repeat(12, 1fr); 
     gap: 20px;
 }
 
-    /*=== Kotak-kotak (bio, music, slider) === */
-.bio-card, .music-card, .tools-slider {
-    border: 1px solid rgba(100, 255, 218, 0.4);
+.dashboard-box {
+    background: rgba(10, 25, 47, 0.7);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    border-radius: 15px;
+    color: #ccd6f6;
     padding: 20px;
-    background: rgba(17, 34, 64, 0.3);
-    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
 }
 
-    /*=== Stacks icon container ===*/
-@keyframes jiggle {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(3deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(-3deg); }
-    100% { transform: rotate(0deg); }
-}
-
-.jiggle {
-    animation: jiggle 2s infinite ease-in-out;
-}
-
-/* Tambahkan delay biar goyangnya nggak barengan (biar natural) */
-.icon-box:nth-child(2) { animation-delay: 0.2s; }
-.icon-box:nth-child(3) { animation-delay: 0.4s; }
-.icon-box:nth-child(4) { animation-delay: 0.6s; }
-
-.stacks-icons {
-    gap: 50px;
-    margin-bottom: 20px;
-
+.box-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    gap: 8px;
 }
 
-.icon-box {
-    width: 50px;
-    height: 50px;
-    background: #E0E0E0;
-    border-radius: 12px;
+.dot-green { width: 12px; height: 12px; background: #00ff00; border-radius: 50%; }
+.dot-red { width: 12px; height: 12px; background: #ff0000; border-radius: 50%; }
+
+.box-online {
+    background: #0B1628;
+    grid-column: 1 / 8;
+    z-index: 2;
+}
+
+.online-content {
+    text-align: center;
+    font-size: 20px;
+}
+
+/* ===== MUSIC ===== */
+.box-music {
+    grid-column: 8 / 13;
+    height: fit-content;
 
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    gap: 15px;
+
+    margin-top: 15px;
 }
 
-.icon-box i {
-    font-size: 2rem;
-    width: 65%;
-    height: auto;
-}
-
-/*-=-=- Music -=-=-*/
 .music-card {
     display: flex;
     flex-direction: column;
@@ -222,6 +221,49 @@ body {
     border-radius: 5px;
     outline: none;
     accent-color: #64ffda;
+}
+
+/* ===== RANDOM ===== */
+.box-random {
+    grid-column: 1 / 5;
+    margin-bottom: 20px;
+}
+
+
+.box-offline {
+    background-color: #0B1628;
+    grid-column: 5 / 13;
+    margin-top: -75px; 
+    z-index: 3;
+    border-color: rgba(100, 255, 218, 0.5);
+}
+
+.mini-icon-grid {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.icon-link {
+    color: #a0aec0;
+    font-size: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.icon-link:hover {
+    color: #4fd1c5;
+    transform: scale(1.2);
+}
+
+.location-row {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 8px; 
+    margin-top: 10px; 
 }
 
 /*------ Navbar */
@@ -335,7 +377,7 @@ body {
     height: auto;
 }
 
-/*========== PROJECTS SECTION ==========*/
+/*===================================== PROJECTS SECTION =====================================*/
 #projects {
     background: linear-gradient(to bottom, #112240);
     min-height: 100vh;
@@ -349,6 +391,14 @@ body {
     box-sizing: border-box;
 }
 
+/* <><><> Left-Right Button <><><> */
+#left:hover, #right:hover{
+    background: #64FFDA;
+    color: #0A192F;
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
+}
+
+/* <><><> Project Card Base <><><> */
 .projects-wrapper {
     max-width: 1100px;
     width: 100%;
@@ -421,25 +471,32 @@ body {
     user-select: none;
 }
 
+/* <><><><><> Project Card <><><><><> */
 .projects-card {
     flex: 0 0 300px;
     height: 450px;
 
-    background: rgba(255, 255, 255, 0.05); /* Sedikit transparan */
-    border: 1.5px solid rgba(100, 255, 218, 0.3); /* Border neon tipis */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(100, 255, 218, 0.3);
     border-radius: 20px;
 
     overflow: hidden; /* Biar thumbnail nggak keluar jalur */
     transition: 0.3s;
-    text-align: center; /* Sesuai gambar, teks rata tengah */
+    text-align: center;
 
-    /* Efek Redup Keseluruh Cards*/
-    /* opacity: 0.3; */
-    filter: blur(0.5px);
-    transition: all 0.4 ease;
+    transition: all 0.4s ease;
 }
 
-/* Projects-Card Content */
+.projects-card:hover {
+    border-color: #64FFDA;
+
+    transform: scale(1.01) translateY(5px);
+
+    box-shadow: 0 10px 25px rgba(100, 255, 218, 0.15);
+    cursor: pointer;
+}
+
+/* <><><> Project Card Content <><><> */
 .projects-thumbnail {
     width: 100%;
     height: 220px;
@@ -490,7 +547,13 @@ body {
     font-weight: bold;
 }
 
-/* Mengatur Dimention Sesuai Ukuran Layar Device*/
+
+/*====================================== CTF-WU SECTION ======================================*/
+
+/*===================================== CONTACT SECTION =====================================*/
+
+
+/* Mengatur Dimention Sesuai Ukuran Layar Device (Mutlak Dibawah) */
 @media screen and (max-width: 600px) {
     .projects-wrapper .projects-grid {
         grid-auto-columns: calc((100% / 2) - 9px);
