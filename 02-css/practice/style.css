@@ -14,7 +14,7 @@ body {
     overflow: hidden;
 }
 
-    /* ===== DECRYPT TEXT ===== */
+    /* ===== Decrypt Text ===== */
 h2.decrypt-effect {
     letter-spacing: 2px;
 
@@ -50,6 +50,7 @@ h2.decrypt-effect {
     gap: 5px;
 }
 
+    /* ===== Blinking Cursor ===== */
 .blink-cursor {
     color: #38BDF8;
     animation: blink 0.8s infinite;
@@ -69,10 +70,7 @@ h2.decrypt-effect {
     overflow-y: scroll !important;
 }
 
-
-
 /*====================================== ABOUT SECTION ======================================*/
-
 #about {
     background: linear-gradient(to bottom, #112240);
     min-height: 100vh;
@@ -115,6 +113,7 @@ h2.decrypt-effect {
 .dot-green { width: 12px; height: 12px; background: #00ff00; border-radius: 50%; }
 .dot-red { width: 12px; height: 12px; background: #ff0000; border-radius: 50%; }
 
+    /* <><><> ONLINE BOX <><><> */
 .box-online {
     background: #0B1628;
     grid-column: 1 / 8;
@@ -126,7 +125,7 @@ h2.decrypt-effect {
     font-size: 20px;
 }
 
-/* ===== MUSIC ===== */
+    /* <><><> MUSIC <><><> */
 .box-music {
     grid-column: 8 / 13;
     height: fit-content;
@@ -159,7 +158,7 @@ h2.decrypt-effect {
     opacity: 0.7;
 }
 
-/* ==-- Progress Bar --== */
+    /* ===== Progress Bar ===== */
 .progress-container {
     width: 100%;
     height: 6px;
@@ -180,7 +179,7 @@ h2.decrypt-effect {
     transition: width 0.1s linear;
 }
 
-/* ==-- Container play dan volume --== */
+    /* ==== Play & Volume ==== */
 .music-controls-row {
     display: flex;
     align-items: center;
@@ -223,13 +222,13 @@ h2.decrypt-effect {
     accent-color: #64ffda;
 }
 
-/* ===== RANDOM ===== */
+    /* <><><> RANDOM BOX <><><> */
 .box-random {
     grid-column: 1 / 5;
     margin-bottom: 20px;
 }
 
-
+    /* <><><> OFFLINE BOX <><><> */
 .box-offline {
     background-color: #0B1628;
     grid-column: 5 / 13;
@@ -266,7 +265,7 @@ h2.decrypt-effect {
     margin-top: 10px; 
 }
 
-/*------ Navbar */
+    /* <----- Navbar -----> */
 .navbar {
     position: fixed; /*Tetap melayang walau discroll*/
     top: 20px;
@@ -316,10 +315,21 @@ h2.decrypt-effect {
     color: #64ffda;
 }
 
-.tools-slider {
+    /* <><><> Infinite Marquee <><><> */
+#tools {
+    background-color: #112240;
+    min-height: 100vh;
+    padding: 80px 0;
+    box-sizing: border-box;
+}
+
+.tools-marquee-wrapper {
+    max-width: 900px;
     width: 100%;
-    max-width: 600px;
-    margin: 20px auto 0;
+    margin: 10px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
     overflow: hidden;
 
     /* Left-Right Fade Effect */
@@ -339,42 +349,67 @@ h2.decrypt-effect {
     );
 }
 
-@keyframes stacks-slide-animation {
-    0% {
-        transform: translateX(0%);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.tools-slider-track {
-    width: max-content;
+.marquee-track {
     display: flex;
-    gap: 35px;
-
-    /* Infinite Slide Animation */
-    animation-name: stacks-slide-animation;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    width: 100%;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    padding: 20px 0;
+    gap: 125px;
 }
 
-.tools-slider-card {
+.marquee-content {
+    display: flex;
+    gap: 125px;
+
+    /* TAMBAHKAN INI: Memaksa blok kontainer mempertahankan ukuran aslinya */
     flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 50px;
-    height: 50px;
-    margin-right: 35px;
+    /* Lebar minimum menyesuaikan total ruang gambar dan gap internalnya */
+    min-width: 100%; 
+    justify-content: space-around;
+    
+    animation: scrollMarquee 20s linear infinite; 
 }
 
-.tools-slider-card img {
-    width: 70%;
-    height: auto;
+.marquee-content img {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(1) opacity(0.6);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+}
+
+/* KONDISI 1: Hover = Animasi Stop */
+.marquee-track:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* KONDISI 2: Image di Hover = Zoom membesar + Background muncul warna */
+.marquee-content img:hover {
+    transform: scale(1.25); /* Membesar 25% */
+    filter: grayscale(0) opacity(1) drop-shadow(0 0 12px #64FFDA); /* Glow Neon Cyan */
+    cursor: pointer;
+}
+
+/* --- Baris Atas: Bergerak Normal (Kanan ke Kiri) --- */
+.track-top .marquee-content {
+    animation-direction: normal;
+}
+
+/* --- Baris Bawah: Gerak Dibalik (Kiri ke Kanan)  ---*/
+.track-bottom .marquee-content {
+    animation-direction: reverse;
+}
+
+    /* <><><> Infinite Loop <><><> */
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% - 125px)); 
+    }
 }
 
 /*===================================== PROJECTS SECTION =====================================*/
@@ -391,14 +426,14 @@ h2.decrypt-effect {
     box-sizing: border-box;
 }
 
-/* <><><> Left-Right Button <><><> */
+    /* ===== Left-Right Button ===== */
 #left:hover, #right:hover{
     background: #64FFDA;
     color: #0A192F;
     box-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
 }
 
-/* <><><> Project Card Base <><><> */
+    /* <><><> Project Card Base <><><> */
 .projects-wrapper {
     max-width: 1100px;
     width: 100%;
@@ -471,7 +506,7 @@ h2.decrypt-effect {
     user-select: none;
 }
 
-/* <><><><><> Project Card <><><><><> */
+    /* <><><> Project Card <><><> */
 .projects-card {
     flex: 0 0 300px;
     height: 450px;
@@ -496,7 +531,7 @@ h2.decrypt-effect {
     cursor: pointer;
 }
 
-/* <><><> Project Card Content <><><> */
+    /* ===== Project Card Content ===== */
 .projects-thumbnail {
     width: 100%;
     height: 220px;
@@ -553,7 +588,7 @@ h2.decrypt-effect {
 /*===================================== CONTACT SECTION =====================================*/
 
 
-/* Mengatur Dimention Sesuai Ukuran Layar Device (Mutlak Dibawah) */
+    /* Mengatur Dimention Sesuai Ukuran Layar Device (Mutlak Dibawah) */
 @media screen and (max-width: 600px) {
     .projects-wrapper .projects-grid {
         grid-auto-columns: calc((100% / 2) - 9px);

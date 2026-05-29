@@ -93,11 +93,16 @@ window.addEventListener('keydown', function(e) {
 //================= Scroll-Driven Animation
 
 
-//================= DECRYPTION TEXT
+
+//================= DECRYPTION TEXT (Non-About)
 
 const decryptChars = "01$#/?@[]{}<>";
 
 function startDecryptEffect(element) {
+    if (element.isDecrypting) return;
+
+    element.isDecrypting = true;
+
     const originalText = element.innerText;
     let iteration = 0;
     
@@ -116,19 +121,20 @@ function startDecryptEffect(element) {
             
         if (iteration >= originalText.length) {
             clearInterval(element.decryptInterval);
+            element.innerText = originalText; 
+            
+            element.isDecrypting = false; 
         }
         
         iteration += 1 / 3; 
     }, 30);
 }
 
-const decryptTitles = document.querySelectorAll("h2");
-decryptTitles.forEach(title => {
-
-    if (title.closest('#about')) {
-        startDecryptEffect(title);
+document.addEventListener("DOMContentLoaded", () => {
+    const aboutTitle = document.querySelector("#about h2.decrypt-effect");
+    if (aboutTitle) {
+        startDecryptEffect(aboutTitle);
     }
-    
 });
 
 //================= MUSIC PLAY
@@ -247,3 +253,30 @@ projectsGrid.addEventListener('mousedown', dragStart);
 projectsGrid.addEventListener('mousemove', dragging);
 document.addEventListener('mouseup', dragStop);
 projectsGrid.addEventListener('scroll', infiniteScroll);
+
+
+
+//================= SCROLL DRIVEN ANIMATION
+
+const sectionObserverOptions = {
+    threshold: 0.2
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            const title = entry.target.querySelector("h2.decrypt-effect");
+            
+            if (title) {
+                startDecryptEffect(title);
+            }
+            
+            sectionObserver.unobserve(entry.target);
+        }
+    });
+}, sectionObserverOptions);
+
+const targetSections = document.querySelectorAll("#about, #tools, #projects");
+targetSections.forEach(section => {
+    if (section) sectionObserver.observe(section);
+});
