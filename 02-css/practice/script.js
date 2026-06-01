@@ -9,16 +9,12 @@ const volumeIcon = document.querySelector('.volume-icon');
 //========================================================================================================================
 music.volume = volumeControl.value;
 
-
-
 const textElement = document.getElementById('typing-text');
-//const, kalau udah diisi nilainya ga boleh diubah sepanjang kode
 
 const phrases = ["whoami", "Christanto"];
-let phraseIndex = 0; //Mulai dari kalimat pertama
-//let, nilainya bisa berubah-ubah seiring jalannya program
-let charIndex = 0; //Mulai dari huruf pertama
-let isDeleting = false; //Status apakah sedang mengapus atau mengetik, false = mengetik
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
 function typeEffect() {
     loopCount++;
@@ -26,7 +22,7 @@ function typeEffect() {
 
     const currentPhrase = phrases[phraseIndex];
 
-    if(isDeleting) { // Pakai isDeleting
+    if(isDeleting) {
         textElement.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
     } else {
@@ -34,15 +30,14 @@ function typeEffect() {
         charIndex++;
     }
 
-    // Ganti 'typing' jadi 'isDeleting'
     let typeSpeed = isDeleting ? 100 : 150; 
 
     if(!isDeleting && charIndex === currentPhrase.length) {
         typeSpeed = 5000; 
-        isDeleting = true; // Ganti 'typing' jadi 'isDeleting'
+        isDeleting = true;
     } 
     else if(isDeleting && charIndex === 0) {
-        isDeleting = false; // Ganti 'typing' jadi 'isDeleting'
+        isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
         typeSpeed = 500;
     }
@@ -57,13 +52,10 @@ document.addEventListener('DOMContentLoaded', typeEffect);
 //================= SPACE INTERACTION
 window.addEventListener('keydown', function(e) { 
 
-    //Pakai e.code untuk string "Space"
     if(e.keyCode === 32 || e.code === "Space") {
 
-        //Tambahkan kurung () karena ini fungsi
         e.preventDefault();
 
-        //Kalau akses belum pernah diberikan (first access)
         if (!isAccessGranted) {
 
             document.body.classList.add('allow-scroll');
@@ -78,11 +70,9 @@ window.addEventListener('keydown', function(e) {
                 navbar.classList.add('visible');
             }
 
-            //Musik dinyalakan begitu spasi ditekan
             music.play();
             playBtn.textContent = '⏸';
 
-            //Tandai kalau sudah pernah diakses
             isAccessGranted = true;
 
             console.log("Access Granted: Welcome User!");
@@ -95,7 +85,6 @@ window.addEventListener('keydown', function(e) {
 
 
 //================= DECRYPTION TEXT (Non-About)
-
 const decryptChars = "01$#/?@[]{}<>";
 
 function startDecryptEffect(element) {
@@ -126,10 +115,11 @@ function startDecryptEffect(element) {
             element.isDecrypting = false; 
         }
         
-        iteration += 1 / 3; 
+        iteration += 1 / 4; 
     }, 30);
 }
 
+//================= DECRYPTION TEXT (About)
 document.addEventListener("DOMContentLoaded", () => {
     const aboutTitle = document.querySelector("#about h2.decrypt-effect");
     if (aboutTitle) {
@@ -138,14 +128,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //================= MUSIC PLAY
-
 playBtn.addEventListener('click', () => {
     if (music.paused) {
         music.play();
-        playBtn.textContent = '⏸'; //Ganti jadi pause
+        playBtn.textContent = '⏸';
     } else {
         music.pause();
-        playBtn.textContent = '▶'; //Ganti jadi play
+        playBtn.textContent = '▶';
     }
 })
 
@@ -153,11 +142,9 @@ playBtn.addEventListener('click', () => {
 music.addEventListener('timeupdate', () => {
     const progressBar = document.querySelector('.progress-bar');
 
-    //Duration harus udah diload (biar ga usah dibagi nol)
     if(!isNaN(music.duration)) {
         const progressPercent = (music.currentTime / music.duration) * 100;
 
-        //Ubah lebar CSS nya biar efek penambahan durasi kerasa
         progressBar.style.width = `${progressPercent}%`;
     }
 })
@@ -166,24 +153,20 @@ music.addEventListener('timeupdate', () => {
 const progressContainer = document.querySelector('.progress-container');
 
 progressContainer.addEventListener('click', (e) => {
-    const width = progressContainer.clientWidth; //Total lebar
-    const clickX = e.offsetX; //Titik user klik
-    const duration = music.duration; //Total durasi lagu
+    const width = progressContainer.clientWidth;
+    const clickX = e.offsetX;
+    const duration = music.duration;
 
-    //Set lagu berdasarkan posisi bar
     music.currentTime = (clickX / width) * duration;
 
 })
 
 //================= MUSIC VOLUME CONTROL
 volumeControl.addEventListener('input', (e) => {
-    // Ambil nilai slider (0.0 - 1.0)
     const volumeValue = parseFloat(e.target.value);
     
-    // Terapkan ke audio
     music.volume = volumeValue;
 
-    // Ganti ikon berdasarkan tingkat volume
     if (volumeValue === 0) {
         volumeIcon.textContent = '🔇';
     } else if (volumeValue < 0.5) {
@@ -255,9 +238,53 @@ document.addEventListener('mouseup', dragStop);
 projectsGrid.addEventListener('scroll', infiniteScroll);
 
 
+//================= WRITEUP NAVIGATION
+const ctfCards = document.querySelectorAll(".ctf-card");
+const ctfArrowBtns = document.querySelectorAll(".ctf-wrapper i");
+
+let ctfCurrentIndex = 0;
+
+function updateCtfCarousel() {
+    const totalCards = ctfCards.length;
+    if (totalCards === 0) return;
+
+    ctfCards.forEach(card => {
+        card.classList.remove("active", "prev", "next", "far-prev", "far-next");
+    });
+
+    const activeIdx  = ctfCurrentIndex;
+    const nextIdx    = (ctfCurrentIndex + 1) % totalCards;
+    const farNextIdx = (ctfCurrentIndex + 2) % totalCards;
+    const prevIdx    = (ctfCurrentIndex - 1 + totalCards) % totalCards;
+    const farPrevIdx = (ctfCurrentIndex - 2 + totalCards) % totalCards;
+
+    ctfCards[activeIdx].classList.add("active");
+    ctfCards[nextIdx].classList.add("next");
+    ctfCards[farNextIdx].classList.add("far-next");
+    ctfCards[prevIdx].classList.add("prev");
+    ctfCards[farPrevIdx].classList.add("far-prev");
+}
+
+ctfArrowBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const totalCards = ctfCards.length;
+        
+        if (btn.id === "ctf-left") {
+            ctfCurrentIndex = (ctfCurrentIndex - 1 + totalCards) % totalCards;
+        } else if (btn.id === "ctf-right") {
+            ctfCurrentIndex = (ctfCurrentIndex + 1) % totalCards;
+        }
+        
+        updateCtfCarousel();
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateCtfCarousel();
+});
+
 
 //================= SCROLL DRIVEN ANIMATION
-
 const sectionObserverOptions = {
     threshold: 0.2
 };
@@ -276,7 +303,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
     });
 }, sectionObserverOptions);
 
-const targetSections = document.querySelectorAll("#about, #tools, #projects");
+const targetSections = document.querySelectorAll("#about, #tools, #projects, #ctf");
 targetSections.forEach(section => {
     if (section) sectionObserver.observe(section);
 });

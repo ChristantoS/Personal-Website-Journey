@@ -582,8 +582,147 @@ h2.decrypt-effect {
     font-weight: bold;
 }
 
-
 /*====================================== CTF-WU SECTION ======================================*/
+#ctf {
+    background-color: #112240;
+    min-height: 100vh;
+}
+
+#ctf h2 {
+    text-align: left;
+    width: 100%;
+    max-width: 900px; 
+    margin: 30px auto 30px auto; 
+    box-sizing: border-box;
+}
+
+.ctf-wrapper {
+    max-width: 950px; /* Sedikit lebih lebar dari max-width karosel (900px) agar tombol pas di luar */
+    width: 100%;
+    margin: 40px auto 0 auto;
+    position: relative; /* <--- KUNCI UTAMA: Menjadi patokan koordinat untuk tombol absolute */
+}
+
+.ctf-wrapper i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    
+    background: rgba(10, 25, 47, 0.9);
+    border: 1px solid #64FFDA;
+    color: #64FFDA;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ctf-wrapper i:hover {
+    background: #64FFDA;
+    color: #0A192F;
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
+}
+
+#ctf-left {
+    left: -35px;
+}
+
+#ctf-right {
+    right: -35px;
+}
+
+    /* <><><> ------ <><><>*/
+.ctf-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 400px;
+    perspective: 1000px;
+}
+    
+.ctf-card {
+    border: 2px solid #64FFDA; 
+    border-radius: 15px; 
+    position: absolute;
+    
+    width: 280px;
+    height: 380px;
+    
+    transition: all 0.5s ease;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+}
+
+.ctf-card-thumbnail {
+    width: 100%;
+    height: 55%; 
+    
+    overflow: hidden;
+    background-color: #64FFDA;
+    /* background-color: rgba(10, 25, 47, 0.5);  */
+    border-bottom: 1px solid rgba(100, 255, 218, 0.3); 
+}
+
+.ctf-card-title {
+    width: 100%;
+    
+    height: 45%; 
+    background-color: #112240; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+    
+    color: #ffffff; 
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+    text-align: center;
+    word-spacing: 2px;
+    line-height: 1.2;
+}
+
+.ctf-card.active {
+    transform: translate3d(0, 0, 0) scale(1.1);
+    opacity: 1;
+    z-index: 3;
+}
+
+.ctf-card.prev {
+    transform: translate3d(-150px, 0, -100px) scale(0.9);
+    opacity: 0.75;
+    z-index: 2;
+}
+.ctf-card.next {
+    transform: translate3d(150px, 0, -100px) scale(0.9);
+    opacity: 0.75;
+    z-index: 2;
+}
+
+.ctf-card.far-prev {
+    transform: translate3d(-300px, 0, -200px) scale(0.8);
+    opacity: 0.5;
+    z-index: 1;
+}
+.ctf-card.far-next {
+    transform: translate3d(300px, 0, -200px) scale(0.8);
+    opacity: 0.5;
+    z-index: 1;
+}
+
 
 /*===================================== CONTACT SECTION =====================================*/
 
