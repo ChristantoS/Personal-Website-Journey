@@ -115,8 +115,8 @@ function startDecryptEffect(element) {
             element.isDecrypting = false; 
         }
         
-        iteration += 1 / 4; 
-    }, 30);
+        iteration += 1 / 5; 
+    }, 20);
 }
 
 //================= DECRYPTION TEXT (About)
@@ -303,7 +303,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
     });
 }, sectionObserverOptions);
 
-const targetSections = document.querySelectorAll("#about, #tools, #projects, #ctf");
+const targetSections = document.querySelectorAll("#about, #tools, #projects, #ctf, #contact");
 targetSections.forEach(section => {
     if (section) sectionObserver.observe(section);
 });

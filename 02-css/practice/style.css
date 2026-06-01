@@ -265,7 +265,7 @@ h2.decrypt-effect {
     margin-top: 10px; 
 }
 
-    /* <----- Navbar -----> */
+/* <------------------------- Navbar -------------------------> */
 .navbar {
     position: fixed; /*Tetap melayang walau discroll*/
     top: 20px;
@@ -597,10 +597,10 @@ h2.decrypt-effect {
 }
 
 .ctf-wrapper {
-    max-width: 950px; /* Sedikit lebih lebar dari max-width karosel (900px) agar tombol pas di luar */
+    max-width: 950px;
     width: 100%;
     margin: 40px auto 0 auto;
-    position: relative; /* <--- KUNCI UTAMA: Menjadi patokan koordinat untuk tombol absolute */
+    position: relative;
 }
 
 .ctf-wrapper i {
@@ -639,7 +639,7 @@ h2.decrypt-effect {
     right: -35px;
 }
 
-    /* <><><> ------ <><><>*/
+    /* <><><> CTF Card <><><>*/
 .ctf-carousel {
     display: flex;
     justify-content: center;
@@ -725,7 +725,96 @@ h2.decrypt-effect {
 
 
 /*===================================== CONTACT SECTION =====================================*/
+#contact {
+    background: linear-gradient(to bottom,
+        #112240,
+        #0A192F,
+        #0E0B14);
 
+    min-height: 100vh;
+}
+
+#contact h2 {
+    text-align: left;
+    width: 100%;
+    max-width: 900px; 
+    margin: 30px auto 30px auto; 
+    box-sizing: border-box;
+}
+
+.contact-wrapper {
+    display: flex;
+
+}
+
+/*----------------------------------------------*/
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-github .contact-linkedin .contact-instagram {
+    display: flex;
+    align-items: center;
+}
+
+.contact-circle {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #64FFDA; 
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(10, 25, 47, 0.5);
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.contact-circle i {
+    font-size: 2.75rem;
+}
+
+.contact-apps {
+    z-index: 1;
+    border: 2px solid #64FFDA;
+    border-radius: 0 0 15px 0;
+
+    padding: 10px 20px 10px 30px;
+    margin-left: -15px;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.contact-mixed {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-email, .contact-discord {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/*----------------------------------------------*/
+.contact-right {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*====================================== media SECTION ======================================*/
 
     /* Mengatur Dimention Sesuai Ukuran Layar Device (Mutlak Dibawah) */
 @media screen and (max-width: 600px) {
