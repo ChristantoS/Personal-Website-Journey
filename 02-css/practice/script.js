@@ -52,6 +52,10 @@ document.addEventListener('DOMContentLoaded', typeEffect);
 //================= SPACE INTERACTION
 window.addEventListener('keydown', function(e) { 
 
+    if(e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+        return;
+    }
+
     if(e.keyCode === 32 || e.code === "Space") {
 
         e.preventDefault();
@@ -79,10 +83,6 @@ window.addEventListener('keydown', function(e) {
         }
     }
 });
-
-//================= Scroll-Driven Animation
-
-
 
 //================= DECRYPTION TEXT (Non-About)
 const decryptChars = "01$#/?@[]{}<>";
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-//================= SCROLL DRIVEN ANIMATION
+//================= <h2> DECRYPT ANIMATION
 const sectionObserverOptions = {
     threshold: 0.2
 };

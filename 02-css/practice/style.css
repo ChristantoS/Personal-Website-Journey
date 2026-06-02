@@ -746,7 +746,11 @@ h2.decrypt-effect {
 
 .contact-wrapper {
     display: flex;
-    cursor: pointer;
+    margin: 0 auto;
+
+    max-width: 900px;
+    gap: 100px;
+    justify-content: space-between;
 }
 
 /*----------------------------------------------*/
@@ -780,7 +784,6 @@ h2.decrypt-effect {
 .contact-circle i {
     font-size: 2.5rem;
 }
-
 
 .contact-link {
     z-index: 1;
@@ -832,13 +835,83 @@ h2.decrypt-effect {
     gap: 15px;
 }
 
-
 /*----------------------------------------------*/
 .contact-right {
     display: flex;
     flex-direction: column;
+
+    gap: 40px;
+    width: 300px;
+    height: 350px;
+
+    margin: 30px;
+    /* margin-left: 100px; */
+    margin-top: 7px;
 }
 
+.contact-title {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    align-items: center;
+}
+
+.contact-form input, .contact-form textarea{
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #4B4E53;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: 0.3s;
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form textarea{
+    height: 100px;
+    padding: 15px;
+}
+
+.contact-form input:focus, .contact-form textarea:focus{
+    border-color: #64FFDA;
+    outline: none;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.submit-btn {
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 250px;
+
+    cursor: pointer;
+}
+
+.submit-btn:hover{
+    background-color: #64FFDA;
+    transform: translateY(-5px);
+}
+
+textarea {
+    resize: none;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: row;
+    gap: 500px;
+
+    opacity: 0.25;
+}
 
 /*====================================== media SECTION ======================================*/
 
