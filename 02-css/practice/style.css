@@ -661,6 +661,8 @@ h2.decrypt-effect {
     overflow: hidden; 
     display: flex;
     flex-direction: column;
+
+    user-select: none;
 }
 
 .ctf-card-thumbnail {
@@ -744,7 +746,7 @@ h2.decrypt-effect {
 
 .contact-wrapper {
     display: flex;
-
+    cursor: pointer;
 }
 
 /*----------------------------------------------*/
@@ -754,7 +756,7 @@ h2.decrypt-effect {
     gap: 25px;
 }
 
-.contact-github .contact-linkedin .contact-instagram {
+.contact-github, .contact-linkedin, .contact-instagram {
     display: flex;
     align-items: center;
 }
@@ -764,31 +766,54 @@ h2.decrypt-effect {
     height: 70px;
     border: 2px solid #64FFDA; 
     border-radius: 50%;
+    /* margin-left: -80px; */
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background-color: rgba(10, 25, 47, 0.5);
+    background-color: #112240;
     flex-shrink: 0;
     z-index: 2;
 }
 
 .contact-circle i {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
 }
 
-.contact-apps {
+
+.contact-link {
     z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 200px;
+    height: 55px;
+
     border: 2px solid #64FFDA;
     border-radius: 0 0 15px 0;
+    border-left: none;
+    background-color: #112240;
+    overflow: hidden;
 
     padding: 10px 20px 10px 30px;
     margin-left: -15px;
+    padding-left: 15px;
+    text-align: center;
 
     font-size: 1.5rem;
     font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
 
+    user-select: none;
+}
+
+.contact-link:hover {
+    color: #64FFDA;
 }
 
 .contact-mixed {
@@ -798,6 +823,7 @@ h2.decrypt-effect {
     font-size: 1rem;
     justify-content: center;
     align-items: center;
+    margin-left: 15px;
 }
 
 .contact-email, .contact-discord {
