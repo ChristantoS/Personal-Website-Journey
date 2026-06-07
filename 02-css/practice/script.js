@@ -84,6 +84,21 @@ window.addEventListener('keydown', function(e) {
     }
 });
 
+//================= SCROLL DRIVEN
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+            console.log(entry.target);
+            entry.target.classList.add("show");
+        } else {
+            entry.target.classList.remove("show");
+        }
+    })
+}, {})
+
+const scrollElements = document.querySelectorAll(".scroll");
+scrollElements.forEach(el => observer.observe(el));
+
 //================= DECRYPTION TEXT (Non-About)
 const decryptChars = "01$#/?@[]{}<>";
 
@@ -282,7 +297,6 @@ ctfArrowBtns.forEach(btn => {
 document.addEventListener("DOMContentLoaded", () => {
     updateCtfCarousel();
 });
-
 
 //================= <h2> DECRYPT ANIMATION
 const sectionObserverOptions = {

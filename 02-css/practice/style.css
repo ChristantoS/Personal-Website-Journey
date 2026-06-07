@@ -70,6 +70,16 @@ h2.decrypt-effect {
     overflow-y: scroll !important;
 }
 
+/*====================================== SCROLL DRIVEN ======================================*/
+.scroll {
+    opacity: 0;
+    transition: 2000ms ease;
+}
+
+.scroll.show {
+    opacity: 1;
+}
+
 /*====================================== ABOUT SECTION ======================================*/
 #about {
     background: linear-gradient(to bottom, #112240);
@@ -110,8 +120,9 @@ h2.decrypt-effect {
     gap: 8px;
 }
 
-.dot-green { width: 12px; height: 12px; background: #00ff00; border-radius: 50%; }
-.dot-red { width: 12px; height: 12px; background: #ff0000; border-radius: 50%; }
+.dot-green { width: 12px; height: 12px; background: #00ff00; border-radius: 50%; animation: blink 1s infinite; }
+
+.dot-red { width: 12px; height: 12px; background: #ff0000; border-radius: 50%; animation: blink 2s infinite;}
 
     /* <><><> ONLINE BOX <><><> */
 .box-online {
@@ -222,10 +233,43 @@ h2.decrypt-effect {
     accent-color: #64ffda;
 }
 
-    /* <><><> RANDOM BOX <><><> */
-.box-random {
+    /* <><><> RANDOM CV <><><> */
+.box-cv {
     grid-column: 1 / 5;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cv-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #64FFDA;
+    text-align: center;
+}
+
+.fa-beat {
+    scale: 0.75;
+}
+
+.cv-view {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.cv-download {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.cv-view:hover, .cv-download:hover {
+    color: #64FFDA;
 }
 
     /* <><><> OFFLINE BOX <><><> */
@@ -816,7 +860,8 @@ h2.decrypt-effect {
 }
 
 .contact-link:hover {
-    color: #64FFDA;
+    background-color: #64FFDA;
+    color: #112240;
 }
 
 .contact-mixed {
@@ -898,7 +943,7 @@ h2.decrypt-effect {
 
 .submit-btn:hover{
     background-color: #64FFDA;
-    transform: translateY(-5px);
+    transform: scale(1.2);
 }
 
 textarea {
