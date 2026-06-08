@@ -14,23 +14,23 @@ body {
     overflow: hidden;
 }
 
-    /* ===== Decrypt Text ===== */
+/* ===== Decrypt Text ===== */
 h2.decrypt-effect {
     letter-spacing: 2px;
 
     text-align: left;
     width: 100%;
-    max-width: 900px; 
-    margin: 30px auto 30px auto; 
+    max-width: 900px;
+    margin: 30px auto 30px auto;
     box-sizing: border-box;
 }
 
 /*======================================= HOME SECTION =======================================*/
 #home {
     background: linear-gradient(to bottom,
-        #0E0B14,
-        #0A192F,
-        #112240);
+            #0E0B14,
+            #0A192F,
+            #112240);
 
     min-height: 100vh;
 }
@@ -50,7 +50,7 @@ h2.decrypt-effect {
     gap: 5px;
 }
 
-    /* ===== Blinking Cursor ===== */
+/* ===== Blinking Cursor ===== */
 .blink-cursor {
     color: #38BDF8;
     animation: blink 0.8s infinite;
@@ -61,9 +61,16 @@ h2.decrypt-effect {
     animation: blink 2s infinite;
 }
 
-@keyframes blink{
-    0%, 100%{opacity: 1;}
-    50%{opacity: 0;}
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .allow-scroll {
@@ -97,7 +104,7 @@ h2.decrypt-effect {
     width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(12, 1fr); 
+    grid-template-columns: repeat(12, 1fr);
     gap: 20px;
 }
 
@@ -120,11 +127,23 @@ h2.decrypt-effect {
     gap: 8px;
 }
 
-.dot-green { width: 12px; height: 12px; background: #00ff00; border-radius: 50%; animation: blink 1s infinite; }
+.dot-green {
+    width: 12px;
+    height: 12px;
+    background: #00ff00;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
 
-.dot-red { width: 12px; height: 12px; background: #ff0000; border-radius: 50%; animation: blink 2s infinite;}
+.dot-red {
+    width: 12px;
+    height: 12px;
+    background: #ff0000;
+    border-radius: 50%;
+    animation: blink 2s infinite;
+}
 
-    /* <><><> ONLINE BOX <><><> */
+/* <><><> ONLINE BOX <><><> */
 .box-online {
     background: #0B1628;
     grid-column: 1 / 8;
@@ -136,7 +155,7 @@ h2.decrypt-effect {
     font-size: 20px;
 }
 
-    /* <><><> MUSIC <><><> */
+/* <><><> MUSIC <><><> */
 .box-music {
     grid-column: 8 / 13;
     height: fit-content;
@@ -169,7 +188,7 @@ h2.decrypt-effect {
     opacity: 0.7;
 }
 
-    /* ===== Progress Bar ===== */
+/* ===== Progress Bar ===== */
 .progress-container {
     width: 100%;
     height: 6px;
@@ -190,7 +209,7 @@ h2.decrypt-effect {
     transition: width 0.1s linear;
 }
 
-    /* ==== Play & Volume ==== */
+/* ==== Play & Volume ==== */
 .music-controls-row {
     display: flex;
     align-items: center;
@@ -233,7 +252,7 @@ h2.decrypt-effect {
     accent-color: #64ffda;
 }
 
-    /* <><><> RANDOM CV <><><> */
+/* <><><> RANDOM CV <><><> */
 .box-cv {
     grid-column: 1 / 5;
     margin-bottom: 20px;
@@ -268,15 +287,16 @@ h2.decrypt-effect {
     cursor: pointer;
 }
 
-.cv-view:hover, .cv-download:hover {
+.cv-view:hover,
+.cv-download:hover {
     color: #64FFDA;
 }
 
-    /* <><><> OFFLINE BOX <><><> */
+/* <><><> OFFLINE BOX <><><> */
 .box-offline {
     background-color: #0B1628;
     grid-column: 5 / 13;
-    margin-top: -75px; 
+    margin-top: -75px;
     z-index: 3;
     border-color: rgba(100, 255, 218, 0.5);
 }
@@ -302,21 +322,24 @@ h2.decrypt-effect {
 }
 
 .location-row {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    gap: 8px; 
-    margin-top: 10px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
 }
 
 /* <------------------------- Navbar -------------------------> */
 .navbar {
-    position: fixed; /*Tetap melayang walau discroll*/
+    position: fixed;
+    /*Tetap melayang walau discroll*/
     top: 20px;
     left: 50%;
-    transform: translateX(-50px); /*Supaya tepat ditengah layar*/
+    transform: translateX(-50px);
+    /*Supaya tepat ditengah layar*/
     z-index: 9999;
-    opacity: 0; /*Sembunyikan dulu sebelum space ditekan*/
+    opacity: 0;
+    /*Sembunyikan dulu sebelum space ditekan*/
     pointer-events: none;
     transition: opacity 0.5s ease;
 }
@@ -348,18 +371,18 @@ h2.decrypt-effect {
     gap: 20px;
 }
 
-.nav-links a{
+.nav-links a {
     text-decoration: none;
     color: white;
     font-size: 14px;
     transition: color 0.3s;
 }
 
-.nav-links a:hover{
+.nav-links a:hover {
     color: #64ffda;
 }
 
-    /* <><><> Infinite Marquee <><><> */
+/* <><><> Infinite Marquee <><><> */
 #tools {
     background-color: #112240;
     min-height: 100vh;
@@ -377,20 +400,16 @@ h2.decrypt-effect {
     overflow: hidden;
 
     /* Left-Right Fade Effect */
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 10%,
-        black 90%,
-        transparent 100%
-    );
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 10%,
-        black 90%,
-        transparent 100%
-    );
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
 }
 
 .marquee-track {
@@ -410,10 +429,10 @@ h2.decrypt-effect {
     /* TAMBAHKAN INI: Memaksa blok kontainer mempertahankan ukuran aslinya */
     flex-shrink: 0;
     /* Lebar minimum menyesuaikan total ruang gambar dan gap internalnya */
-    min-width: 100%; 
+    min-width: 100%;
     justify-content: space-around;
-    
-    animation: scrollMarquee 20s linear infinite; 
+
+    animation: scrollMarquee 20s linear infinite;
 }
 
 .marquee-content img {
@@ -431,8 +450,10 @@ h2.decrypt-effect {
 
 /* KONDISI 2: Image di Hover = Zoom membesar + Background muncul warna */
 .marquee-content img:hover {
-    transform: scale(1.25); /* Membesar 25% */
-    filter: grayscale(0) opacity(1) drop-shadow(0 0 12px #64FFDA); /* Glow Neon Cyan */
+    transform: scale(1.25);
+    /* Membesar 25% */
+    filter: grayscale(0) opacity(1) drop-shadow(0 0 12px #64FFDA);
+    /* Glow Neon Cyan */
     cursor: pointer;
 }
 
@@ -446,13 +467,14 @@ h2.decrypt-effect {
     animation-direction: reverse;
 }
 
-    /* <><><> Infinite Loop <><><> */
+/* <><><> Infinite Loop <><><> */
 @keyframes scrollMarquee {
     0% {
         transform: translateX(0);
     }
+
     100% {
-        transform: translateX(calc(-100% - 125px)); 
+        transform: translateX(calc(-100% - 125px));
     }
 }
 
@@ -465,19 +487,20 @@ h2.decrypt-effect {
 #projects h2 {
     text-align: left;
     width: 100%;
-    max-width: 900px; 
-    margin: 30px auto 30px auto; 
+    max-width: 900px;
+    margin: 30px auto 30px auto;
     box-sizing: border-box;
 }
 
-    /* ===== Left-Right Button ===== */
-#left:hover, #right:hover{
+/* ===== Left-Right Button ===== */
+#left:hover,
+#right:hover {
     background: #64FFDA;
     color: #0A192F;
     box-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
 }
 
-    /* <><><> Project Card Base <><><> */
+/* <><><> Project Card Base <><><> */
 .projects-wrapper {
     max-width: 1100px;
     width: 100%;
@@ -487,23 +510,23 @@ h2.decrypt-effect {
 
 .projects-wrapper i {
     position: absolute;
-    
+
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    
+
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    
+
     background: rgba(10, 25, 47, 0.9);
     border: 1px solid #64FFDA;
     color: #64FFDA;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -550,7 +573,7 @@ h2.decrypt-effect {
     user-select: none;
 }
 
-    /* <><><> Project Card <><><> */
+/* <><><> Project Card <><><> */
 .projects-card {
     flex: 0 0 300px;
     height: 450px;
@@ -559,7 +582,8 @@ h2.decrypt-effect {
     border: 1.5px solid rgba(100, 255, 218, 0.3);
     border-radius: 20px;
 
-    overflow: hidden; /* Biar thumbnail nggak keluar jalur */
+    overflow: hidden;
+    /* Biar thumbnail nggak keluar jalur */
     transition: 0.3s;
     text-align: center;
 
@@ -569,24 +593,23 @@ h2.decrypt-effect {
 .projects-card:hover {
     border-color: #64FFDA;
 
-    transform: scale(1.01) translateY(5px);
-
     box-shadow: 0 10px 25px rgba(100, 255, 218, 0.15);
-    cursor: pointer;
 }
 
-    /* ===== Project Card Content ===== */
+/* ===== Project Card Content ===== */
 .projects-thumbnail {
     width: 100%;
     height: 220px;
-    background: #64FFDA; /* Warna placeholder sesuai gambar kamu */
+    background: #64FFDA;
+    /* Warna placeholder sesuai gambar kamu */
     overflow: hidden;
 }
 
 .projects-thumbnail img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Biar gambar nggak gepeng */
+    object-fit: cover;
+    /* Biar gambar nggak gepeng */
 }
 
 .projects-content {
@@ -598,9 +621,20 @@ h2.decrypt-effect {
     font-size: 1.2rem;
     letter-spacing: 2px;
     margin-bottom: 10px;
-    border-top: 1px solid rgba(255,255,255,0.2); /* Garis di atas judul */
-    border-bottom: 1px solid rgba(255,255,255,0.2); /* Garis di bawah judul */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    /* Garis di atas judul */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* Garis di bawah judul */
     padding: 5px 0;
+}
+
+.projects-btn-link {
+    color: #64FFDA;
+    text-decoration: none;
+}
+
+.projects-link:visited {
+    color: #64FFDA;
 }
 
 .projects-desc {
@@ -617,6 +651,7 @@ h2.decrypt-effect {
     flex-wrap: wrap;
 }
 
+
 .projects-tags span {
     background: #fff;
     color: #0a192f;
@@ -624,6 +659,10 @@ h2.decrypt-effect {
     border-radius: 15px;
     font-size: 0.7rem;
     font-weight: bold;
+}
+
+.projects-tags .tags-wip {
+    background: #64FFDA;
 }
 
 /*====================================== CTF-WU SECTION ======================================*/
@@ -635,8 +674,8 @@ h2.decrypt-effect {
 #ctf h2 {
     text-align: left;
     width: 100%;
-    max-width: 900px; 
-    margin: 30px auto 30px auto; 
+    max-width: 900px;
+    margin: 30px auto 30px auto;
     box-sizing: border-box;
 }
 
@@ -652,15 +691,15 @@ h2.decrypt-effect {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    
+
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    
+
     background: rgba(10, 25, 47, 0.9);
     border: 1px solid #64FFDA;
     color: #64FFDA;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -683,7 +722,7 @@ h2.decrypt-effect {
     right: -35px;
 }
 
-    /* <><><> CTF Card <><><>*/
+/* <><><> CTF Card <><><>*/
 .ctf-carousel {
     display: flex;
     justify-content: center;
@@ -692,17 +731,17 @@ h2.decrypt-effect {
     height: 400px;
     perspective: 1000px;
 }
-    
+
 .ctf-card {
-    border: 2px solid #64FFDA; 
-    border-radius: 15px; 
+    border: 2px solid #64FFDA;
+    border-radius: 15px;
     position: absolute;
-    
+
     width: 280px;
     height: 380px;
-    
+
     transition: all 0.5s ease;
-    overflow: hidden; 
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 
@@ -711,31 +750,31 @@ h2.decrypt-effect {
 
 .ctf-card-thumbnail {
     width: 100%;
-    height: 55%; 
-    
+    height: 55%;
+
     overflow: hidden;
     background-color: #64FFDA;
     /* background-color: rgba(10, 25, 47, 0.5);  */
-    border-bottom: 1px solid rgba(100, 255, 218, 0.3); 
+    border-bottom: 1px solid rgba(100, 255, 218, 0.3);
 }
 
 .ctf-card-title {
     width: 100%;
-    
-    height: 45%; 
-    background-color: #112240; 
-    
+
+    height: 45%;
+    background-color: #112240;
+
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px;
     box-sizing: border-box;
-    
-    color: #ffffff; 
+
+    color: #ffffff;
     font-size: 1.4rem;
     font-weight: bold;
     letter-spacing: 1px;
-    
+
     text-align: center;
     word-spacing: 2px;
     line-height: 1.2;
@@ -752,6 +791,7 @@ h2.decrypt-effect {
     opacity: 0.75;
     z-index: 2;
 }
+
 .ctf-card.next {
     transform: translate3d(150px, 0, -100px) scale(0.9);
     opacity: 0.75;
@@ -763,6 +803,7 @@ h2.decrypt-effect {
     opacity: 0.5;
     z-index: 1;
 }
+
 .ctf-card.far-next {
     transform: translate3d(300px, 0, -200px) scale(0.8);
     opacity: 0.5;
@@ -773,9 +814,9 @@ h2.decrypt-effect {
 /*===================================== CONTACT SECTION =====================================*/
 #contact {
     background: linear-gradient(to bottom,
-        #112240,
-        #0A192F,
-        #0E0B14);
+            #112240,
+            #0A192F,
+            #0E0B14);
 
     min-height: 100vh;
 }
@@ -783,8 +824,8 @@ h2.decrypt-effect {
 #contact h2 {
     text-align: left;
     width: 100%;
-    max-width: 900px; 
-    margin: 30px auto 30px auto; 
+    max-width: 900px;
+    margin: 30px auto 30px auto;
     box-sizing: border-box;
 }
 
@@ -804,7 +845,9 @@ h2.decrypt-effect {
     gap: 25px;
 }
 
-.contact-github, .contact-linkedin, .contact-instagram {
+.contact-github,
+.contact-linkedin,
+.contact-instagram {
     display: flex;
     align-items: center;
 }
@@ -812,7 +855,7 @@ h2.decrypt-effect {
 .contact-circle {
     width: 70px;
     height: 70px;
-    border: 2px solid #64FFDA; 
+    border: 2px solid #64FFDA;
     border-radius: 50%;
     /* margin-left: -80px; */
 
@@ -874,7 +917,8 @@ h2.decrypt-effect {
     margin-left: 15px;
 }
 
-.contact-email, .contact-discord {
+.contact-email,
+.contact-discord {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -908,7 +952,8 @@ h2.decrypt-effect {
     align-items: center;
 }
 
-.contact-form input, .contact-form textarea{
+.contact-form input,
+.contact-form textarea {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #4B4E53;
     color: white;
@@ -921,12 +966,13 @@ h2.decrypt-effect {
     box-sizing: border-box;
 }
 
-.contact-form textarea{
+.contact-form textarea {
     height: 100px;
     padding: 15px;
 }
 
-.contact-form input:focus, .contact-form textarea:focus{
+.contact-form input:focus,
+.contact-form textarea:focus {
     border-color: #64FFDA;
     outline: none;
     box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
@@ -941,7 +987,7 @@ h2.decrypt-effect {
     cursor: pointer;
 }
 
-.submit-btn:hover{
+.submit-btn:hover {
     background-color: #64FFDA;
     transform: scale(1.2);
 }
@@ -960,7 +1006,7 @@ textarea {
 
 /*====================================== media SECTION ======================================*/
 
-    /* Mengatur Dimention Sesuai Ukuran Layar Device (Mutlak Dibawah) */
+/* Mengatur Dimention Sesuai Ukuran Layar Device (Mutlak Dibawah) */
 @media screen and (max-width: 600px) {
     .projects-wrapper .projects-grid {
         grid-auto-columns: calc((100% / 2) - 9px);
