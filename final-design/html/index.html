@@ -14,12 +14,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
 
-    <!-- ======== NAVBAR ======== -->
+    <!-- ========= NAVBAR ========= -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <span class="logo">Christanto</span>
@@ -113,12 +113,16 @@
 
                     <div class="cv-view">
                         <i class="fa-solid fa-eye fa-beat"></i>
-                        <span class="cv-view-text">Look Up (tab)</span>
+                        <a href="../assets/CV.pdf" target="_blank">
+                            <span class="cv-view-text">Look Up (tab)</span>
+                        </a>
                     </div>
 
                     <div class="cv-download">
                         <i class="fa-solid fa-download fa-beat"></i>
-                        <span class="cv-download-text">Download (.pdf)</span>
+                        <a href="../assets/CV.pdf" download="CV.pdf">
+                            <span class="cv-download-text">Download (.pdf)</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -152,7 +156,8 @@
                 <div class="marquee-content">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg" />
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" />
                 </div>
@@ -160,7 +165,8 @@
                 <div class="marquee-content" aria-hidden="true">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg" />
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" />
                 </div>
@@ -168,19 +174,23 @@
 
             <div class="marquee-track track-bottom">
                 <div class="marquee-content">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
                 </div>
 
                 <div class="marquee-content" aria-hidden="true">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
                 </div>
             </div>
 
@@ -201,7 +211,7 @@
                 <!-- Project - Personal Website -->
                 <div class="projects-card">
                     <div class="projects-thumbnail">
-                        <img src="../project-website.png" alt="Project Preview" draggable="false">
+                        <img src="../assets/project-website.png" alt="Project Preview" draggable="false">
                     </div>
 
                     <div class="projects-content">
@@ -209,7 +219,8 @@
                         <p class="projects-desc">A modern neon style website and builded as my online portfolio</p>
 
                         <div class="projects-link">
-                            <a href="https://github.com/ChristantoS/Personal-Website-Journey" target="_blank" class="projects-btn-link">Github Repo</a>
+                            <a href="https://github.com/ChristantoS/Personal-Website-Journey" target="_blank"
+                                class="projects-btn-link">Github Repo</a>
                             <span> | </span>
                             <a href="#" class="projects-btn-link live">Live Demo</a>
                         </div>
@@ -462,12 +473,17 @@
             </div>
 
             <div class="contact-right">
-                <form action="#" method="POST" class="contact-form scroll">
-                    <span class="contact-title scroll">Send me Message!</span>
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                    <input type="hidden" name="access_key" value="a297d61c-c9f5-47d7-991c-754187caffdb">
+
+                    <span class="contact-title"> Send me Message!</span>
                     <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="gmail" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Message Here!" maxlength="200" required></textarea>
-                    <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Message Here!" required></textarea>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
                 </form>
             </div>
 
@@ -477,9 +493,9 @@
             <span>© 2026 Todo Christanto. All rights reserved.</span>
             <span>Last update : 8 June 2026</span>
         </footer>
-     </section>
+    </section>
 
-    <script src="script.js"></script>
+    <script src="../javascript/script.js"></script>
 </body>
 
 </html>

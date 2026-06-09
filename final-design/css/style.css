@@ -14,9 +14,9 @@ body {
     overflow: hidden;
 }
 
-/* =====================================
-||||||||||||| Decrypt Text ||||||||||||| 
-===================================== */
+/* -------------------------------------
+<<<<<<<<<<<<< Decrypt Text >>>>>>>>>>>>> 
+------------------------------------- */
 h2.decrypt-effect {
     letter-spacing: 2px;
 
@@ -54,9 +54,9 @@ h2.decrypt-effect {
     gap: 5px;
 }
 
-/* =====================================
-||||||||||| Blinking Cursor |||||||||||| 
-===================================== */
+/* -------------------------------------
+<<<<<<<<<<< Blinking Cursor >>>>>>>>>>> 
+------------------------------------- */
 .blink-cursor {
     color: #38BDF8;
     animation: blink 0.8s infinite;
@@ -83,9 +83,9 @@ h2.decrypt-effect {
     overflow-y: scroll !important;
 }
 
-/* =====================================
-|||||||||||| Scroll Driven ||||||||||||| 
-===================================== */
+/* -------------------------------------
+<<<<<<<<<<<< Scroll Driven >>>>>>>>>>>> 
+------------------------------------- */
 .scroll {
     opacity: 0;
     transition: 1500ms ease;
@@ -137,6 +137,7 @@ h2.decrypt-effect {
     gap: 8px;
 }
 
+/* ===== Blinking Dot ===== */
 .dot-green {
     width: 12px;
     height: 12px;
@@ -153,7 +154,9 @@ h2.decrypt-effect {
     animation: blink 2s infinite;
 }
 
-/* <><><> ONLINE BOX <><><> */
+/* /////////////////////////////////////
+<<<<<<<<<<<<<< Online Box >>>>>>>>>>>>>> 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 .box-online {
     background: #0B1628;
     grid-column: 1 / 8;
@@ -165,7 +168,9 @@ h2.decrypt-effect {
     font-size: 20px;
 }
 
-/* <><><> MUSIC <><><> */
+/* /////////////////////////////////////
+<<<<<<<<<<<<<< Music Box >>>>>>>>>>>>>> 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 .box-music {
     grid-column: 8 / 13;
     height: fit-content;
@@ -262,7 +267,9 @@ h2.decrypt-effect {
     accent-color: #64ffda;
 }
 
-/* <><><> RANDOM CV <><><> */
+/* /////////////////////////////////////
+<<<<<<<<<<<<<<<< CV Box >>>>>>>>>>>>>>>> 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 .box-cv {
     grid-column: 1 / 5;
     margin-bottom: 20px;
@@ -297,12 +304,21 @@ h2.decrypt-effect {
     cursor: pointer;
 }
 
-.cv-view:hover,
-.cv-download:hover {
+.cv-view a, .cv-download a {
+    text-decoration: none;
+}
+
+.cv-view-text, .cv-download-text {
+    color: #ffffff;
+}
+
+.cv-view-text:hover, .cv-view:hover i, .cv-download-text:hover, .cv-download:hover i {
     color: #64FFDA;
 }
 
-/* <><><> OFFLINE BOX <><><> */
+/* /////////////////////////////////////
+<<<<<<<<<<<<< Offline Box >>>>>>>>>>>>> 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 .box-offline {
     background-color: #0B1628;
     grid-column: 5 / 13;
@@ -339,7 +355,9 @@ h2.decrypt-effect {
     margin-top: 10px;
 }
 
-/* <------------------------- Navbar -------------------------> */
+/* -------------------------------------
+<<<<<<<<<<<<<<<< Navbar >>>>>>>>>>>>>>>> 
+------------------------------------- */
 .navbar {
     position: fixed;
     /*Tetap melayang walau discroll*/
@@ -392,7 +410,9 @@ h2.decrypt-effect {
     color: #64ffda;
 }
 
-/* <><><> Infinite Marquee <><><> */
+/* /////////////////////////////////////
+<<<<<<<<<<< Infinite Marquee >>>>>>>>>>> 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 #tools {
     background-color: #112240;
     min-height: 100vh;
@@ -453,12 +473,12 @@ h2.decrypt-effect {
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
 }
 
-/* KONDISI 1: Hover = Animasi Stop */
+/* === KONDISI 1: Animasi Stop === */
 .marquee-track:hover .marquee-content {
     animation-play-state: paused;
 }
 
-/* KONDISI 2: Image di Hover = Zoom membesar + Background muncul warna */
+/* === KONDISI 2: Zoom + Colour === */
 .marquee-content img:hover {
     transform: scale(1.25);
     /* Membesar 25% */
@@ -472,12 +492,12 @@ h2.decrypt-effect {
     animation-direction: normal;
 }
 
-/* --- Baris Bawah: Gerak Dibalik (Kiri ke Kanan)  ---*/
+/* --- Baris Bawah: Gerak Dibalik (Kiri ke Kanan)  --- */
 .track-bottom .marquee-content {
     animation-direction: reverse;
 }
 
-/* <><><> Infinite Loop <><><> */
+/* <><><><> Infinite Loop <><><><> */
 @keyframes scrollMarquee {
     0% {
         transform: translateX(0);
@@ -488,7 +508,9 @@ h2.decrypt-effect {
     }
 }
 
-/*===================================== PROJECTS SECTION =====================================*/
+/* ------=======================================
+||||||||||||||| PROJECTS SECTION |||||||||||||||
+=======================================------ */
 #projects {
     background: linear-gradient(to bottom, #112240);
     min-height: 100vh;
@@ -674,7 +696,9 @@ h2.decrypt-effect {
     background: #64FFDA;
 }
 
-/*====================================== CTF-WU SECTION ======================================*/
+/* ------=======================================
+|||||||||||||||| CTF-WU SECTION ||||||||||||||||
+=======================================------ */
 #ctf {
     background-color: #112240;
     min-height: 100vh;
@@ -819,8 +843,9 @@ h2.decrypt-effect {
     z-index: 1;
 }
 
-
-/*===================================== CONTACT SECTION =====================================*/
+/* ------=======================================
+||||||||||||||| CONTACT SECTION |||||||||||||||
+=======================================------ */
 #contact {
     background: linear-gradient(to bottom,
             #112240,
@@ -1032,9 +1057,9 @@ textarea {
     opacity: 0.25;
 }
 
-/*====================================== media SECTION ======================================*/
-
-/* Mengatur Dimention Sesuai Ukuran Layar Device (Mutlak Dibawah) */
+/* =====================================
+~~~~~~~~~ USER SCREEN CONTROL ~~~~~~~~~ 
+===================================== */
 @media screen and (max-width: 600px) {
     .projects-wrapper .projects-grid {
         grid-auto-columns: calc((100% / 2) - 9px);

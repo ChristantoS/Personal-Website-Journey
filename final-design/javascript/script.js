@@ -2,7 +2,7 @@
 let loopCount = 0;
 let isAccessGranted = false;
 
-const music = new Audio('../backsound.mp3');
+const music = new Audio('../assets/backsound.mp3');
 const playBtn = document.getElementById('play-btn');
 const volumeControl = document.getElementById('volume-control');
 const volumeIcon = document.querySelector('.volume-icon');
