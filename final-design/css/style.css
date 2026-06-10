@@ -1060,6 +1060,202 @@ textarea {
 /* =====================================
 ~~~~~~~~~ USER SCREEN CONTROL ~~~~~~~~~ 
 ===================================== */
+@media screen and (max-width: 768px) {
+    
+    /* ----- 1. GLOBAL & SCREEN RESET ----- */
+    body {
+        overflow-x: hidden !important;
+    }
+
+    .screen {
+        height: auto !important;
+        min-height: 100vh;
+        padding: 80px 20px;
+        box-sizing: border-box;
+    }
+
+    h2.decrypt-effect {
+        font-size: 1.3rem; 
+        margin: 10px 0 25px 0;
+        text-align: center;
+    }
+
+    /* ----- 2. NAVBAR MOBILE OPTIMIZATION ----- */
+    .navbar {
+        top: 0;
+        left: 0;
+        transform: none !important;
+        width: 100%;
+    }
+
+    .nav-container {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        padding: 10px 15px;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    /* ----- 3. HOME SECTION ----- */
+    .terminal-loader h1 {
+        font-size: 32px;
+    }
+
+    .start-hint {
+        font-size: 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    /* ----- 4. ABOUT SECTION (GRID TO FLEX) ----- */
+    #about {
+        padding: 80px 15px !important;
+    }
+
+    .about-dashboard-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .dashboard-box {
+        grid-column: auto !important; 
+        width: 100% !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        box-sizing: border-box;
+    }
+
+    .online-content {
+        font-size: 15px;
+    }
+
+    .volume-container {
+        display: none;
+    }
+
+    /* ----- 5. TOOLS SECTION (MARQUEE) ----- */
+    .marquee-track {
+        gap: 60px;
+        padding: 15px 0;
+    }
+
+    .marquee-content {
+        gap: 60px;
+    }
+
+    .marquee-content img {
+        height: 38px;
+    }
+
+    /* ----- 6. PROJECTS SECTION ----- */
+    .projects-wrapper i {
+        display: none;
+    }
+
+    .projects-wrapper .projects-grid {
+        grid-auto-columns: calc(100% - 20px) !important;
+        gap: 15px;
+        padding: 0 5px;
+    }
+
+    .projects-card {
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    /* ----- 7. CTF CAROUSEL ----- */
+    .ctf-carousel {
+        height: 320px;
+    }
+
+    .ctf-card {
+        width: 190px;
+        height: 280px;
+    }
+
+    .ctf-card-title {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .ctf-card.prev { transform: translate3d(-65px, 0, -80px) scale(0.85); }
+    .ctf-card.next { transform: translate3d(65px, 0, -80px) scale(0.85); }
+    .ctf-card.far-prev { transform: translate3d(-130px, 0, -150px) scale(0.7); opacity: 0.15; }
+    .ctf-card.far-next { transform: translate3d(130px, 0, -150px) scale(0.7); opacity: 0.15; }
+
+    /* ----- 8. CONTACT SECTION & FORM ----- */
+    .contact-wrapper {
+        flex-direction: column !important;
+        gap: 40px;
+        width: 100%;
+    }
+
+    .contact-left {
+        width: 100%;
+        align-items: center;
+    }
+
+    .contact-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .contact-circle i {
+        font-size: 1.8rem;
+    }
+
+    .contact-link {
+        width: 160px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .contact-mixed {
+        margin-left: 0;
+        align-items: center;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+
+    .contact-right {
+        width: 100% !important;
+        margin: 0;
+        height: auto;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    /* ----- 9. FOOTER OPTIMIZATION ----- */
+    .footer-info {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        margin-top: 40px;
+        font-size: 0.75rem;
+    }
+}
+
+
 @media screen and (max-width: 600px) {
     .projects-wrapper .projects-grid {
         grid-auto-columns: calc((100% / 2) - 9px);

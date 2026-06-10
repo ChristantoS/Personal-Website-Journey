@@ -49,6 +49,30 @@ function typeEffect() {
 document.addEventListener('DOMContentLoaded', typeEffect);
 
 
+//================= WEB ACCESS
+function grantAccess() {
+    if (!isAccessGranted) {
+        document.body.classList.add('allow-scroll');
+
+        const aboutSection = document.getElementById('about');
+        if(aboutSection) {
+            aboutSection.scrollIntoView({behavior: 'smooth'});
+        }
+
+        const navbar = document.getElementById('navbar');
+        if(navbar) {
+            navbar.classList.add('visible');
+        }
+
+        music.play();
+        playBtn.textContent = '⏸';
+
+        isAccessGranted = true;
+
+        console.log("Access Granted: Welcome User!");
+    }
+}
+
 //================= SPACE INTERACTION
 window.addEventListener('keydown', function(e) { 
 
@@ -59,30 +83,23 @@ window.addEventListener('keydown', function(e) {
     if(e.keyCode === 32 || e.code === "Space") {
 
         e.preventDefault();
-
-        if (!isAccessGranted) {
-
-            document.body.classList.add('allow-scroll');
-
-            const aboutSection = document.getElementById('about');
-            if(aboutSection) {
-                aboutSection.scrollIntoView({behavior: 'smooth'});
-            }
-
-            const navbar = document.getElementById('navbar');
-            if(navbar) {
-                navbar.classList.add('visible');
-            }
-
-            music.play();
-            playBtn.textContent = '⏸';
-
-            isAccessGranted = true;
-
-            console.log("Access Granted: Welcome User!");
-        }
+        grantAccess();
     }
 });
+
+//================= CLICK / TAP INTERACTION
+document.addEventListener('DOMContentLoaded', () => {
+    const homeSection = document.getElementById('home');
+    if(homeSection) {
+        homeSection.addEventListener('click', function(e) {
+            if(e.target.tagName === 'A' || e.target.closest('a')) return;
+
+            grantAccess();
+        })
+
+        homeSection.style.cursor = 'pointer';
+    }
+})
 
 //================= SCROLL DRIVEN
 const observer = new IntersectionObserver((entries) => {
