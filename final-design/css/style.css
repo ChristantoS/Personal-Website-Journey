@@ -1063,8 +1063,12 @@ textarea {
 @media screen and (max-width: 768px) {
     
     /* ----- 1. GLOBAL & SCREEN RESET ----- */
-    body {
+
+    html, body {
+        width: 100% !important;
+        max-width: 100% !important;
         overflow-x: hidden !important;
+        position: relative;
     }
 
     .screen {
@@ -1089,13 +1093,16 @@ textarea {
     }
 
     .nav-container {
+        width: 100% !important;
+        max-width: 100% !important;
         border-radius: 0;
         border-left: none;
         border-right: none;
         border-top: none;
-        padding: 10px 15px;
+        padding: 10px 10px !important;
         justify-content: space-between;
-        gap: 10px;
+        gap: 5px !important;
+        box-sizing: border-box !important;
     }
 
     .logo {
@@ -1103,7 +1110,7 @@ textarea {
     }
 
     .nav-links {
-        gap: 12px;
+        gap: 8px;
     }
 
     .nav-links a {
@@ -1119,6 +1126,7 @@ textarea {
         font-size: 15px;
         margin-top: 20px;
         text-align: center;
+        padding: 0 10px;
     }
 
     /* ----- 4. ABOUT SECTION (GRID TO FLEX) ----- */
@@ -1151,6 +1159,12 @@ textarea {
     }
 
     /* ----- 5. TOOLS SECTION (MARQUEE) ----- */
+    .tools-marquee-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+
     .marquee-track {
         gap: 60px;
         padding: 15px 0;
@@ -1252,18 +1266,5 @@ textarea {
         gap: 10px;
         margin-top: 40px;
         font-size: 0.75rem;
-    }
-}
-
-
-@media screen and (max-width: 600px) {
-    .projects-wrapper .projects-grid {
-        grid-auto-columns: calc((100% / 2) - 9px);
-    }
-}
-
-@media screen and (max-width: 300px) {
-    .projects-wrapper .projects-grid {
-        grid-auto-columns: 100%;
     }
 }
